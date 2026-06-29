@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Diers Community</title>
     <style>
-        /* ===== ВСЕ СТИЛИ (полные, как в старой версии) ===== */
+        /* ===== БАЗОВЫЕ СТИЛИ ===== */
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Segoe UI',system-ui,sans-serif;background:#060812;color:#e8ecf5;min-height:100vh;padding:6px;overflow-x:hidden;position:relative;-webkit-tap-highlight-color:transparent}
-        .cosmic-bg{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse at 20% 15%,#0f1a30,#03050b)}
+        body{font-family:'Segoe UI',system-ui,sans-serif;background:#060812;color:#e8ecf5;min-height:100vh;padding:6px;overflow-x:hidden;position:relative;-webkit-tap-highlight-color:transparent;transition:background .6s ease}
+        .cosmic-bg{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;pointer-events:none;overflow:hidden;transition:all .6s ease}
         .stars{position:absolute;width:100%;height:100%;background-image:radial-gradient(2px 2px at 3% 8%,rgba(255,255,255,.9),transparent),radial-gradient(2px 2px at 12% 45%,rgba(255,255,255,.6),transparent),radial-gradient(1.5px 1.5px at 22% 82%,rgba(255,255,255,.9),transparent),radial-gradient(2px 2px at 32% 22%,rgba(255,255,255,.5),transparent),radial-gradient(1.5px 1.5px at 42% 68%,rgba(255,255,255,.8),transparent),radial-gradient(2px 2px at 52% 12%,rgba(255,255,255,.6),transparent),radial-gradient(1.5px 1.5px at 62% 52%,rgba(255,255,255,.9),transparent),radial-gradient(2px 2px at 72% 88%,rgba(255,255,255,.5),transparent),radial-gradient(1.5px 1.5px at 82% 18%,rgba(255,255,255,.8),transparent),radial-gradient(2px 2px at 92% 62%,rgba(255,255,255,.6),transparent),radial-gradient(1.5px 1.5px at 7% 92%,rgba(255,255,255,.7),transparent),radial-gradient(2px 2px at 47% 42%,rgba(255,255,255,.9),transparent);background-size:160px 160px;opacity:.8;animation:twinkle 6s infinite alternate}
         @keyframes twinkle{0%{opacity:.4}100%{opacity:1}}
         .roblox-float{position:absolute;font-size:2.2rem;font-weight:900;color:rgba(255,215,0,.04);user-select:none;animation:floatIcon linear infinite;font-family:'Arial Black',sans-serif;will-change:transform}
         .roblox-float:nth-child(odd){animation-duration:30s}.roblox-float:nth-child(even){animation-duration:38s}.roblox-float:nth-child(3n){font-size:3.6rem;opacity:.025}.roblox-float:nth-child(5n){font-size:1.8rem;opacity:.06}
         @keyframes floatIcon{0%{transform:translate(0,0) rotate(0) scale(1)}25%{transform:translate(25vw,-15vh) rotate(8deg) scale(1.08)}50%{transform:translate(55vw,5vh) rotate(-6deg) scale(.92)}75%{transform:translate(15vw,20vh) rotate(12deg) scale(1.05)}100%{transform:translate(-5vw,10vh) rotate(-10deg) scale(1)}}
-        .container{position:relative;z-index:10;width:100%;max-width:100%;min-height:98vh;padding:30px 40px 25px;margin:0 auto;background:rgba(8,12,24,.45);backdrop-filter:blur(28px) saturate(240%);-webkit-backdrop-filter:blur(28px) saturate(240%);border-radius:40px;border:1px solid rgba(255,215,0,.04);box-shadow:0 60px 160px rgba(0,0,0,.95);animation:fadeIn 1.6s cubic-bezier(.12,.95,.20,1) forwards;opacity:0;transform:translateY(40px) scale(.96);display:flex;flex-direction:column}
+        .container{position:relative;z-index:10;width:100%;max-width:100%;min-height:98vh;padding:30px 40px 25px;margin:0 auto;background:rgba(8,12,24,.45);backdrop-filter:blur(28px) saturate(240%);-webkit-backdrop-filter:blur(28px) saturate(240%);border-radius:40px;border:1px solid rgba(255,215,0,.04);box-shadow:0 60px 160px rgba(0,0,0,.95);animation:fadeIn 1.6s cubic-bezier(.12,.95,.20,1) forwards;opacity:0;transform:translateY(40px) scale(.96);display:flex;flex-direction:column;transition:all .5s ease}
         @keyframes fadeIn{0%{opacity:0;transform:translateY(40px) scale(.96)}100%{opacity:1;transform:translateY(0) scale(1)}}
         .header-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;margin-bottom:25px;padding-bottom:20px;border-bottom:1px solid rgba(255,215,0,.04)}
         .header-left{flex:1;min-width:200px}
@@ -23,16 +23,20 @@
         @keyframes neonShine{0%{filter:brightness(1) drop-shadow(0 0 30px rgba(245,205,90,.1))}100%{filter:brightness(1.5) drop-shadow(0 0 80px rgba(245,205,90,.25))}}
         .sub-text{font-size:20px;color:rgba(200,210,240,.6);font-weight:300;letter-spacing:.5px;margin-top:4px}
         .sub-text strong{color:#f5cd5a;font-weight:600;background:rgba(245,205,90,.06);padding:0 12px;border-radius:6px}
-        .profile-area{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-        .profile-avatar{width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,215,0,.2);cursor:pointer;transition:all .4s cubic-bezier(.12,.95,.20,1);background:rgba(255,255,255,.05);box-shadow:0 0 20px rgba(255,215,0,.05)}
+        .profile-area{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+        .profile-avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,215,0,.2);cursor:pointer;transition:all .4s cubic-bezier(.12,.95,.20,1);background:rgba(255,255,255,.05);box-shadow:0 0 20px rgba(255,215,0,.05)}
         .profile-avatar:hover{border-color:#f5cd5a;transform:scale(1.08);box-shadow:0 0 50px rgba(255,215,0,.15)}
         .profile-name{font-size:17px;color:rgba(200,210,240,.8);font-weight:500;cursor:pointer;transition:color .3s}
         .profile-name:hover{color:#f5cd5a}
-        .profile-actions{display:flex;gap:6px;align-items:center}
-        .profile-actions button{background:none;border:1px solid rgba(255,215,0,.08);color:rgba(200,210,240,.4);padding:5px 12px;border-radius:30px;font-size:12px;cursor:pointer;transition:all .3s;font-family:inherit}
+        .profile-actions{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+        .profile-actions button{background:none;border:1px solid rgba(255,215,0,.08);color:rgba(200,210,240,.4);padding:5px 10px;border-radius:30px;font-size:13px;cursor:pointer;transition:all .3s;font-family:inherit;white-space:nowrap}
         .profile-actions button:hover{background:rgba(255,215,0,.04);border-color:rgba(255,215,0,.15);color:#f0f4ff;transform:scale(1.04)}
-        .admin-btn{background:rgba(255,50,50,.15)!important;border-color:rgba(255,50,50,.3)!important;color:#ff6b6b!important;font-weight:600;padding:5px 14px!important;border-radius:30px;font-size:12px;cursor:pointer;transition:all .4s;font-family:inherit;box-shadow:0 0 20px rgba(255,50,50,.05)}
-        .admin-btn:hover{background:rgba(255,50,50,.25)!important;border-color:#ff6b6b!important;box-shadow:0 0 50px rgba(255,50,50,.2);transform:scale(1.05)}
+        .admin-btn{background:rgba(255,50,50,.15)!important;border-color:rgba(255,50,50,.3)!important;color:#ff6b6b!important;font-weight:600;padding:5px 14px!important}
+        .admin-btn:hover{background:rgba(255,50,50,.25)!important;border-color:#ff6b6b!important;box-shadow:0 0 50px rgba(255,50,50,.2)}
+        .settings-btn{font-size:18px!important;padding:5px 10px!important;border-color:rgba(200,210,240,.1)!important;transition:all .5s cubic-bezier(.12,.95,.20,1)!important}
+        .settings-btn:hover{transform:rotate(60deg) scale(1.1)!important;border-color:#f5cd5a!important;color:#f5cd5a!important;box-shadow:0 0 40px rgba(245,205,90,.1)!important}
+        .edit-profile-btn{font-size:15px!important;padding:5px 10px!important;border-color:rgba(200,210,240,.1)!important}
+        .edit-profile-btn:hover{transform:scale(1.1)!important;border-color:#f5cd5a!important;color:#f5cd5a!important}
         .tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:25px;padding-bottom:14px;border-bottom:1px solid rgba(255,215,0,.04)}
         .tab-btn{padding:10px 26px;border-radius:40px;border:1px solid rgba(255,215,0,.06);background:rgba(255,255,255,.02);color:rgba(200,210,240,.5);font-size:15px;font-weight:500;cursor:pointer;transition:all .5s cubic-bezier(.12,.95,.20,1);font-family:inherit;letter-spacing:.3px;position:relative;overflow:hidden}
         .tab-btn::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%, rgba(255,215,0,.03), transparent 70%);opacity:0;transition:opacity .5s}
@@ -67,8 +71,6 @@
         .social-link svg{width:34px;height:34px;fill:currentColor}
         .games-grid{display:grid;grid-template-columns:1fr;gap:16px;padding:10px 0}
         .game-card{background:rgba(255,255,255,.02);border-radius:20px;padding:18px 24px;border:1px solid rgba(255,215,0,.04);transition:all .6s cubic-bezier(.12,.95,.20,1);cursor:pointer;position:relative;overflow:hidden;box-shadow:0 0 20px rgba(0,0,0,.2)}
-        .game-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,215,0,.03),transparent 70%);opacity:0;transition:opacity .5s;pointer-events:none}
-        .game-card:hover::before{opacity:1}
         .game-card:hover{background:rgba(255,215,0,.03);border-color:rgba(255,215,0,.08);transform:translateY(-4px);box-shadow:0 0 60px rgba(255,215,0,.04)}
         .game-card .game-header{display:flex;align-items:center;gap:14px}
         .game-card .game-icon{font-size:26px}
@@ -125,11 +127,11 @@
         .support-message .msg-text{color:rgba(220,230,255,.8);font-size:14px;word-break:break-word;margin-top:2px;line-height:1.5}
         .chat-login-hint,.support-login-hint{text-align:center;color:rgba(200,210,240,.3);font-size:13px;padding:4px 0}
 
-        /* МОДАЛЬНЫЕ ОКНА (только для авторизации и просмотра профиля) */
+        /* ===== МОДАЛЬНЫЕ ОКНА ===== */
         .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:1000;display:none;align-items:center;justify-content:center;animation:modalFadeIn .5s cubic-bezier(.12,.95,.20,1) forwards}
         .modal-overlay.active{display:flex}
         @keyframes modalFadeIn{0%{opacity:0}100%{opacity:1}}
-        .modal-window{background:rgba(12,16,30,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:32px;padding:32px 40px;max-width:500px;width:92%;border:1px solid rgba(255,215,0,.08);box-shadow:0 40px 120px rgba(0,0,0,.9);transform:scale(.9) translateY(20px);animation:modalSlide .5s cubic-bezier(.12,.95,.20,1) forwards;text-align:center;position:relative;max-height:85vh;overflow-y:auto}
+        .modal-window{background:rgba(12,16,30,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:32px;padding:32px 40px;max-width:700px;width:92%;border:1px solid rgba(255,215,0,.08);box-shadow:0 40px 120px rgba(0,0,0,.9);transform:scale(.9) translateY(20px);animation:modalSlide .5s cubic-bezier(.12,.95,.20,1) forwards;text-align:center;position:relative;max-height:85vh;overflow-y:auto}
         @keyframes modalSlide{0%{transform:scale(.9) translateY(20px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
         .modal-window::-webkit-scrollbar{width:4px}
         .modal-window::-webkit-scrollbar-track{background:rgba(255,255,255,.02);border-radius:4px}
@@ -139,7 +141,7 @@
         .modal-window h2{color:#f5cd5a;font-size:24px;margin-bottom:12px;letter-spacing:.5px}
         .modal-window p{color:rgba(200,210,240,.75);font-size:16px;line-height:1.7}
 
-        /* АВТОРИЗАЦИЯ */
+        /* ===== АВТОРИЗАЦИЯ ===== */
         .auth-modal .modal-window{max-width:420px}
         .auth-modal .modal-window h2{font-size:22px;margin-bottom:16px}
         .auth-form{display:flex;flex-direction:column;gap:14px;align-items:center}
@@ -157,7 +159,7 @@
         .auth-switch{color:rgba(200,210,240,.4);font-size:14px;cursor:pointer;transition:color .3s;margin-top:-4px}
         .auth-switch:hover{color:#f5cd5a}
 
-        /* ПРОФИЛЬ - ПОЛНОЭКРАННАЯ СТРАНИЦА (вкладка) */
+        /* ===== РЕДАКТИРОВАНИЕ ПРОФИЛЯ (вкладка) ===== */
         .profile-full-page{width:100%;max-width:900px;margin:0 auto;padding:20px;background:rgba(255,255,255,.02);border-radius:24px;border:1px solid rgba(255,215,0,.04);animation:tabFade .6s ease}
         .profile-full-page h2{color:#f5cd5a;font-size:28px;margin-bottom:20px;text-align:center}
         .profile-full-page .profile-edit-form{display:flex;flex-direction:column;gap:16px;align-items:center}
@@ -179,83 +181,116 @@
         .profile-full-page .profile-gallery-item .remove-btn{position:absolute;top:4px;right:4px;background:rgba(0,0,0,.6);border:none;color:#fff;border-radius:50%;width:22px;height:22px;font-size:12px;cursor:pointer;transition:all .3s}
         .profile-full-page .profile-gallery-item .remove-btn:hover{background:#ff6b6b;transform:scale(1.1)}
 
-        /* АДМИН-ПАНЕЛЬ - ПОЛНОЭКРАННАЯ СТРАНИЦА (вкладка) */
-        .admin-full-page{width:100%;max-width:100%;margin:0 auto;padding:20px;background:rgba(255,255,255,.02);border-radius:24px;border:1px solid rgba(255,215,0,.04);animation:tabFade .6s ease}
-        .admin-full-page h2{color:#f5cd5a;font-size:28px;margin-bottom:20px;text-align:center}
-        .admin-full-page .admin-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-bottom:20px}
-        .admin-full-page .stat-card{background:rgba(255,255,255,.03);border-radius:16px;padding:18px 14px;border:1px solid rgba(255,215,0,.04);transition:all .4s;text-align:center}
-        .admin-full-page .stat-card:hover{background:rgba(255,215,0,.04);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.3)}
-        .admin-full-page .stat-card .stat-number{font-size:30px;font-weight:700;color:#f5cd5a;display:block}
-        .admin-full-page .stat-card .stat-label{font-size:14px;color:rgba(200,210,240,.5);margin-top:4px}
-        .admin-full-page .admin-chart{background:rgba(255,255,255,.02);border-radius:16px;padding:16px;margin-bottom:20px;border:1px solid rgba(255,215,0,.04)}
-        .admin-full-page .chart-bars{display:flex;justify-content:space-around;align-items:flex-end;height:100px;gap:6px;padding-top:10px}
-        .admin-full-page .chart-bar{flex:1;background:linear-gradient(180deg,#f5cd5a,#e8a84b);border-radius:6px 6px 0 0;min-height:10px;animation:barGrow .8s ease forwards;transform-origin:bottom;opacity:0}
-        @keyframes barGrow{0%{transform:scaleY(0);opacity:0}100%{transform:scaleY(1);opacity:1}}
-        .admin-full-page .chart-labels{display:flex;justify-content:space-around;font-size:10px;color:rgba(200,210,240,.3);margin-top:4px}
-        .admin-full-page .admin-logs{background:rgba(255,255,255,.02);border-radius:16px;padding:12px 16px;max-height:200px;overflow-y:auto;border:1px solid rgba(255,215,0,.04);margin-bottom:16px}
-        .admin-full-page .admin-log-item{padding:4px 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:13px;color:rgba(200,210,240,.6);display:flex;justify-content:space-between}
-        .admin-full-page .admin-log-item .log-time{font-size:11px;color:rgba(200,210,240,.3)}
-        .admin-full-page .admin-user-list{max-height:300px;overflow-y:auto;text-align:left;margin-top:10px}
-        .admin-full-page .admin-user-item{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.04);gap:8px;flex-wrap:wrap;animation:listItemIn .3s ease}
-        @keyframes listItemIn{0%{opacity:0;transform:translateX(-10px)}100%{opacity:1;transform:translateX(0)}}
-        .admin-full-page .admin-user-item .user-info{display:flex;align-items:center;gap:10px}
-        .admin-full-page .admin-user-item .user-info img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,215,0,.1)}
-        .admin-full-page .admin-user-item .user-info span{color:rgba(200,210,240,.8);font-size:14px}
-        .admin-full-page .admin-user-item .user-actions{display:flex;gap:6px;flex-wrap:wrap}
-        .admin-full-page .admin-user-item .user-actions button{padding:2px 10px;border-radius:20px;border:1px solid rgba(255,215,0,.06);background:rgba(255,255,255,.02);color:rgba(200,210,240,.5);font-size:11px;cursor:pointer;transition:all .3s;font-family:inherit}
-        .admin-full-page .admin-user-item .user-actions button:hover{background:rgba(255,215,0,.06);color:#f0f4ff}
-        .admin-full-page .admin-user-item .user-actions .ban-btn{border-color:rgba(255,50,50,.2);color:#ff6b6b}
-        .admin-full-page .admin-user-item .user-actions .ban-btn:hover{background:rgba(255,50,50,.1);border-color:#ff6b6b}
-        .admin-full-page .admin-user-item .user-actions .mute-btn{border-color:rgba(255,200,50,.2);color:#ffd93d}
-        .admin-full-page .admin-user-item .user-actions .mute-btn:hover{background:rgba(255,200,50,.1);border-color:#ffd93d}
-        .admin-full-page .admin-user-item .user-actions .switch-btn{border-color:rgba(100,200,255,.2);color:#6bc5ff}
-        .admin-full-page .admin-user-item .user-actions .switch-btn:hover{background:rgba(100,200,255,.1);border-color:#6bc5ff}
-        .admin-full-page .admin-actions{display:flex;flex-direction:column;gap:12px;margin-top:10px}
-        .admin-full-page .admin-actions button{padding:10px;border-radius:12px;border:1px solid rgba(255,215,0,.06);background:rgba(255,255,255,.02);color:rgba(200,210,240,.7);font-size:15px;cursor:pointer;transition:all .3s;font-family:inherit}
-        .admin-full-page .admin-actions button:hover{background:rgba(255,215,0,.04);color:#f0f4ff;border-color:rgba(255,215,0,.12)}
-        .admin-full-page .admin-actions .danger-btn{border-color:rgba(255,50,50,.15);color:#ff6b6b}
-        .admin-full-page .admin-actions .danger-btn:hover{background:rgba(255,50,50,.08);border-color:#ff6b6b}
-        .admin-full-page .admin-toggle{display:flex;align-items:center;gap:14px;padding:6px 0}
-        .admin-full-page .admin-toggle label{color:rgba(200,210,240,.7);font-size:15px;cursor:pointer}
-        .admin-full-page .admin-toggle input[type="checkbox"]{width:40px;height:22px;appearance:none;background:rgba(255,255,255,.1);border-radius:20px;border:1px solid rgba(255,215,0,.08);transition:all .3s;cursor:pointer;position:relative}
-        .admin-full-page .admin-toggle input[type="checkbox"]:checked{background:#f5cd5a;border-color:#f5cd5a}
-        .admin-full-page .admin-toggle input[type="checkbox"]::before{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;background:#0d1b2a;border-radius:50%;transition:.3s}
-        .admin-full-page .admin-toggle input[type="checkbox"]:checked::before{left:20px;background:#0d1b2a}
-        .admin-full-page .admin-status{font-size:13px;color:rgba(200,210,240,.4);margin-left:auto}
-        .admin-full-page .admin-export-btn{padding:10px 20px;border-radius:30px;border:1px solid rgba(255,215,0,.08);background:rgba(255,215,0,.03);color:rgba(200,210,240,.7);font-size:14px;cursor:pointer;transition:all .4s;font-family:inherit;width:100%;margin-top:8px}
-        .admin-full-page .admin-export-btn:hover{background:rgba(255,215,0,.06);color:#f0f4ff;border-color:rgba(255,215,0,.15);transform:scale(1.02)}
-        .admin-full-page .admin-tabs-inner{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap;border-bottom:1px solid rgba(255,215,0,.06);padding-bottom:10px}
-        .admin-full-page .admin-tab-btn-inner{padding:6px 16px;border-radius:30px;border:1px solid rgba(255,215,0,.06);background:rgba(255,255,255,.02);color:rgba(200,210,240,.5);font-size:13px;cursor:pointer;transition:all .4s;font-family:inherit}
-        .admin-full-page .admin-tab-btn-inner:hover{background:rgba(255,215,0,.04);color:#f0f4ff;border-color:rgba(255,215,0,.12)}
-        .admin-full-page .admin-tab-btn-inner.active{background:rgba(255,215,0,.08);color:#f5cd5a;border-color:rgba(255,215,0,.18)}
-        .admin-full-page .admin-tab-content-inner{display:none;animation:tabFade .4s ease}
-        .admin-full-page .admin-tab-content-inner.active{display:block}
+        /* ===== НАСТРОЙКИ (вкладка) ===== */
+        .settings-full-page{width:100%;max-width:900px;margin:0 auto;padding:20px;background:rgba(255,255,255,.02);border-radius:24px;border:1px solid rgba(255,215,0,.04);animation:tabFade .6s ease}
+        .settings-full-page h2{color:#f5cd5a;font-size:28px;margin-bottom:20px;text-align:center}
+        .settings-group{margin-bottom:18px;padding:14px 18px;background:rgba(255,255,255,.02);border-radius:14px;border:1px solid rgba(255,215,0,.04);transition:all .4s}
+        .settings-group:hover{background:rgba(255,215,0,.02);border-color:rgba(255,215,0,.08)}
+        .settings-group label{display:block;color:rgba(200,210,240,.7);font-size:14px;font-weight:500;margin-bottom:6px}
+        .settings-group .color-options{display:flex;gap:8px;flex-wrap:wrap}
+        .settings-group .color-options button{width:34px;height:34px;border-radius:50%;border:2px solid rgba(255,255,255,.1);cursor:pointer;transition:all .4s cubic-bezier(.12,.95,.20,1);position:relative}
+        .settings-group .color-options button:hover{transform:scale(1.12);border-color:#f5cd5a;box-shadow:0 0 30px rgba(245,205,90,.15)}
+        .settings-group .color-options button.active{border-color:#f5cd5a;box-shadow:0 0 30px rgba(245,205,90,.2)}
+        .settings-group .color-options button.active::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#0d1b2a;font-size:14px;font-weight:700}
+        .settings-group select,.settings-group input[type="range"]{width:100%;padding:8px 12px;border-radius:10px;border:1px solid rgba(255,215,0,.08);background:rgba(255,255,255,.04);color:#e8ecf5;font-size:14px;font-family:inherit;outline:none;transition:all .3s}
+        .settings-group select:focus,.settings-group input:focus{border-color:rgba(255,215,0,.25);box-shadow:0 0 30px rgba(255,215,0,.03)}
+        .settings-group select option{background:#0d1b2a;color:#e8ecf5}
+        .settings-group input[type="range"]{appearance:none;height:5px;border-radius:3px;background:rgba(255,215,0,.15);padding:0}
+        .settings-group input[type="range"]::-webkit-slider-thumb{appearance:none;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#f5cd5a,#e8a84b);cursor:pointer;box-shadow:0 0 20px rgba(245,205,90,.2)}
+        .settings-group input[type="range"]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#f5cd5a,#e8a84b);cursor:pointer;border:none}
+        .settings-group .range-value{color:#f5cd5a;font-weight:600;margin-left:8px}
+        .settings-group .font-preview{display:block;margin-top:6px;padding:8px;background:rgba(255,255,255,.02);border-radius:8px;border:1px solid rgba(255,215,0,.04);font-size:16px;color:rgba(200,210,240,.7)}
+        .settings-group .font-preview span{color:#f5cd5a}
+        .settings-group .settings-checkbox{display:flex;align-items:center;gap:12px;padding:4px 0}
+        .settings-group .settings-checkbox input[type="checkbox"]{width:18px;height:18px;accent-color:#f5cd5a;cursor:pointer}
+        .settings-group .settings-checkbox label{color:rgba(200,210,240,.7);font-size:14px;cursor:pointer;margin-bottom:0}
+        .settings-group .visuals-btn{padding:10px 24px;border-radius:30px;border:1px solid rgba(255,215,0,.08);background:rgba(255,215,0,.03);color:rgba(200,210,240,.7);font-size:14px;cursor:pointer;transition:all .4s;font-family:inherit;width:100%}
+        .settings-group .visuals-btn:hover{background:rgba(255,215,0,.06);border-color:rgba(255,215,0,.15);color:#f0f4ff;transform:scale(1.02)}
+        .settings-group .visuals-btn .soon{color:#ff6b6b;font-size:12px;margin-left:8px}
 
-        /* ПРОСМОТР ПОЛЬЗОВАТЕЛЯ (модалка) */
+        /* ===== АДМИН-ПАНЕЛЬ (вкладка) ===== */
+        .admin-panel-full{width:100%;max-width:100%;margin:0 auto;padding:20px;background:rgba(255,255,255,.02);border-radius:24px;border:1px solid rgba(255,215,0,.04);animation:tabFade .6s ease}
+        .admin-panel-full h2{color:#f5cd5a;font-size:28px;margin-bottom:20px;text-align:center}
+        .admin-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap;border-bottom:1px solid rgba(255,215,0,.06);padding-bottom:10px;max-height:80px;overflow-y:auto}
+        .admin-tab-btn{padding:6px 14px;border-radius:30px;border:1px solid rgba(255,215,0,.06);background:rgba(255,255,255,.02);color:rgba(200,210,240,.5);font-size:12px;cursor:pointer;transition:all .4s;font-family:inherit;white-space:nowrap}
+        .admin-tab-btn:hover{background:rgba(255,215,0,.04);color:#f0f4ff;border-color:rgba(255,215,0,.12)}
+        .admin-tab-btn.active{background:rgba(255,215,0,.08);color:#f5cd5a;border-color:rgba(255,215,0,.18)}
+        .admin-tab-content{display:none;animation:tabFade .4s ease}
+        .admin-tab-content.active{display:block}
+        .admin-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:16px}
+        .stat-card{background:rgba(255,255,255,.03);border-radius:16px;padding:14px 10px;border:1px solid rgba(255,215,0,.04);transition:all .4s;text-align:center}
+        .stat-card:hover{background:rgba(255,215,0,.04);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.3)}
+        .stat-card .stat-number{font-size:26px;font-weight:700;color:#f5cd5a;display:block}
+        .stat-card .stat-label{font-size:12px;color:rgba(200,210,240,.5);margin-top:4px}
+        .admin-user-list{max-height:280px;overflow-y:auto;text-align:left;margin-top:10px}
+        .admin-user-item{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;border-bottom:1px solid rgba(255,255,255,.04);gap:6px;flex-wrap:wrap;animation:listItemIn .3s ease}
+        @keyframes listItemIn{0%{opacity:0;transform:translateX(-10px)}100%{opacity:1;transform:translateX(0)}}
+        .admin-user-item .user-info{display:flex;align-items:center;gap:8px}
+        .admin-user-item .user-info img{width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,215,0,.1)}
+        .admin-user-item .user-info span{color:rgba(200,210,240,.8);font-size:13px}
+        .admin-user-item .user-actions{display:flex;gap:4px;flex-wrap:wrap}
+        .admin-user-item .user-actions button{padding:2px 8px;border-radius:20px;border:1px solid rgba(255,215,0,.06);background:rgba(255,255,255,.02);color:rgba(200,210,240,.5);font-size:10px;cursor:pointer;transition:all .3s;font-family:inherit}
+        .admin-user-item .user-actions button:hover{background:rgba(255,215,0,.06);color:#f0f4ff}
+        .admin-user-item .user-actions .ban-btn{border-color:rgba(255,50,50,.2);color:#ff6b6b}
+        .admin-user-item .user-actions .ban-btn:hover{background:rgba(255,50,50,.1);border-color:#ff6b6b}
+        .admin-user-item .user-actions .mute-btn{border-color:rgba(255,200,50,.2);color:#ffd93d}
+        .admin-user-item .user-actions .mute-btn:hover{background:rgba(255,200,50,.1);border-color:#ffd93d}
+        .admin-user-item .user-actions .switch-btn{border-color:rgba(100,200,255,.2);color:#6bc5ff}
+        .admin-user-item .user-actions .switch-btn:hover{background:rgba(100,200,255,.1);border-color:#6bc5ff}
+        .admin-actions{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+        .admin-actions button{padding:8px;border-radius:12px;border:1px solid rgba(255,215,0,.06);background:rgba(255,255,255,.02);color:rgba(200,210,240,.7);font-size:14px;cursor:pointer;transition:all .3s;font-family:inherit}
+        .admin-actions button:hover{background:rgba(255,215,0,.04);color:#f0f4ff;border-color:rgba(255,215,0,.12)}
+        .admin-actions .danger-btn{border-color:rgba(255,50,50,.15);color:#ff6b6b}
+        .admin-actions .danger-btn:hover{background:rgba(255,50,50,.08);border-color:#ff6b6b}
+        .admin-toggle{display:flex;align-items:center;gap:12px;padding:4px 0}
+        .admin-toggle label{color:rgba(200,210,240,.7);font-size:14px;cursor:pointer}
+        .admin-toggle input[type="checkbox"]{width:36px;height:20px;appearance:none;background:rgba(255,255,255,.1);border-radius:20px;border:1px solid rgba(255,215,0,.08);transition:all .3s;cursor:pointer;position:relative}
+        .admin-toggle input[type="checkbox"]:checked{background:#f5cd5a;border-color:#f5cd5a}
+        .admin-toggle input[type="checkbox"]::before{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;background:#0d1b2a;border-radius:50%;transition:.3s}
+        .admin-toggle input[type="checkbox"]:checked::before{left:18px;background:#0d1b2a}
+        .admin-status{font-size:12px;color:rgba(200,210,240,.4);margin-left:auto}
+        .admin-export-btn{padding:6px 14px;border-radius:30px;border:1px solid rgba(255,215,0,.08);background:rgba(255,215,0,.03);color:rgba(200,210,240,.7);font-size:12px;cursor:pointer;transition:all .4s;font-family:inherit;width:100%;margin-top:4px}
+        .admin-export-btn:hover{background:rgba(255,215,0,.06);color:#f0f4ff;border-color:rgba(255,215,0,.15);transform:scale(1.02)}
+        .admin-logs{background:rgba(255,255,255,.02);border-radius:16px;padding:12px 16px;max-height:200px;overflow-y:auto;border:1px solid rgba(255,215,0,.04)}
+
+        /* ===== ПРОСМОТР ПОЛЬЗОВАТЕЛЯ ===== */
         .user-profile-modal .modal-window{max-width:400px}
         .user-profile-modal .profile-display{display:flex;flex-direction:column;align-items:center;gap:12px;padding:10px 0}
         .user-profile-modal .profile-display img{width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,215,0,.2)}
         .user-profile-modal .profile-display .name{font-size:24px;font-weight:600;color:#f5cd5a}
 
+        /* ===== COOKIE ===== */
         .cookie-notice{margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,215,0,.03);font-size:13px;color:rgba(180,190,220,.4);line-height:1.7;display:flex;flex-wrap:wrap;align-items:center;gap:14px;transition:all .6s cubic-bezier(.12,.95,.20,1);overflow:hidden;max-height:300px;opacity:1}
         .cookie-notice.hidden{max-height:0;opacity:0;padding-top:0;margin-top:0;border-top:none;overflow:hidden}
         .cookie-notice span{flex:1;min-width:140px}
         .btn-cookie{padding:8px 28px;background:rgba(255,215,0,.04);color:#f5cd5a;border:1px solid rgba(255,215,0,.08);border-radius:50px;font-size:13px;font-weight:600;cursor:pointer;transition:all .4s cubic-bezier(.12,.95,.20,1);font-family:inherit;white-space:nowrap;backdrop-filter:blur(4px)}
         .btn-cookie:hover{background:rgba(255,215,0,.08);border-color:rgba(255,215,0,.2);transform:scale(1.04)}
 
+        /* ===== ШРИФТЫ ===== */
+        @font-face{font-family:'Minecraft';src:local('Minecraft'),url('https://fonts.cdnfonts.com/s/15182/Minecraft.woff') format('woff');font-display:swap}
+        @font-face{font-family:'Roblox';src:local('Roblox'),url('https://fonts.cdnfonts.com/s/72319/Roblox.woff') format('woff');font-display:swap}
+        @font-face{font-family:'Meteorite';src:local('Meteorite'),url('https://fonts.cdnfonts.com/s/148086/Meteorite.woff') format('woff');font-display:swap}
+        .font-minecraft *{font-family:'Minecraft',monospace!important}
+        .font-roblox *{font-family:'Roblox',sans-serif!important}
+        .font-bold *{font-weight:700!important}
+        .font-italic *{font-style:italic!important}
+        .font-bold-italic *{font-weight:700!important;font-style:italic!important}
+        .font-meteorite *{font-family:'Meteorite',cursive!important}
+
+        /* ===== АДАПТИВ ===== */
         @media (max-width:1200px){.container{padding:25px 30px 22px}.main-title{font-size:44px}.main-grid{grid-template-columns:1fr;gap:24px}.forum-grid{grid-template-columns:1fr 1fr}.chat-container,.support-container{height:420px}}
-        @media (max-width:768px){body{padding:4px}.container{padding:16px 12px 18px;border-radius:28px;min-height:auto}.main-title{font-size:32px}.sub-text{font-size:17px}.header-row{flex-direction:column;align-items:stretch;gap:10px}.profile-area{justify-content:flex-start}.tab-btn{padding:6px 14px;font-size:12px}.tabs{gap:4px;padding-bottom:10px}.social-link{width:60px;height:60px}.social-link svg{width:26px;height:26px}.forum-grid{grid-template-columns:1fr;gap:10px}.forum-card{min-height:80px;padding:12px}.game-card{padding:12px 14px}.game-card .game-name{font-size:17px}.feature-item{font-size:14px;padding:12px 16px}.rules-list li{font-size:14px;padding:10px 14px}.cookie-notice{flex-direction:column;align-items:stretch;text-align:center}.cookie-notice span{min-width:unset}.btn-cookie{width:100%;text-align:center}.modal-window{padding:24px 18px}.modal-window h2{font-size:20px}.roblox-float{font-size:1.2rem!important}.profile-avatar{width:40px;height:40px}.profile-name{font-size:14px}.profile-actions button{font-size:11px;padding:4px 10px}.chat-container,.support-container{height:320px;padding:10px}.message-avatar,.support-message .msg-avatar{width:30px;height:30px}.message-sender,.support-message .msg-sender{font-size:13px}.message-text,.support-message .msg-text{font-size:13px}.chat-input-area input,.support-input-area input{font-size:13px;padding:8px 12px}.chat-input-area button,.support-input-area button{font-size:13px;padding:8px 16px}.profile-full-page{padding:14px}.admin-full-page{padding:14px}.admin-full-page .admin-stats-grid{grid-template-columns:1fr 1fr}}
-        @media (max-width:480px){.container{padding:10px 6px 12px;border-radius:20px}.main-title{font-size:24px}.sub-text{font-size:13px}.tab-btn{padding:4px 10px;font-size:11px}.social-link{width:48px;height:48px}.social-link svg{width:22px;height:22px}.game-card .game-name{font-size:15px}.game-card .game-desc{font-size:13px}.forum-card h3{font-size:14px}.forum-card p{font-size:12px}.forum-card .btn-forum{font-size:11px;padding:4px 10px}.feature-item{font-size:13px;padding:10px 14px}.rules-list li{font-size:13px;padding:8px 12px}.btn-cookie{font-size:12px;padding:8px 16px}.modal-window{padding:16px 12px}.modal-window h2{font-size:18px}.modal-window p{font-size:14px}.profile-avatar{width:34px;height:34px}.profile-name{font-size:12px}.profile-actions button{font-size:10px;padding:3px 8px}.chat-container,.support-container{height:260px;padding:6px}.message-avatar,.support-message .msg-avatar{width:26px;height:26px}.message-sender,.support-message .msg-sender{font-size:12px}.message-text,.support-message .msg-text{font-size:12px}.chat-input-area input,.support-input-area input{font-size:12px;padding:6px 10px}.chat-input-area button,.support-input-area button{font-size:12px;padding:6px 14px}.profile-full-page{padding:10px}.admin-full-page{padding:10px}.admin-full-page .admin-stats-grid{grid-template-columns:1fr}.admin-full-page .stat-card .stat-number{font-size:24px}}
+        @media (max-width:768px){body{padding:4px}.container{padding:16px 12px 18px;border-radius:28px;min-height:auto}.main-title{font-size:32px}.sub-text{font-size:17px}.header-row{flex-direction:column;align-items:stretch;gap:10px}.profile-area{justify-content:flex-start}.tab-btn{padding:6px 14px;font-size:12px}.tabs{gap:4px;padding-bottom:10px}.social-link{width:60px;height:60px}.social-link svg{width:26px;height:26px}.forum-grid{grid-template-columns:1fr;gap:10px}.forum-card{min-height:80px;padding:12px}.game-card{padding:12px 14px}.game-card .game-name{font-size:17px}.feature-item{font-size:14px;padding:12px 16px}.rules-list li{font-size:14px;padding:10px 14px}.cookie-notice{flex-direction:column;align-items:stretch;text-align:center}.cookie-notice span{min-width:unset}.btn-cookie{width:100%;text-align:center}.modal-window{padding:24px 18px}.modal-window h2{font-size:20px}.roblox-float{font-size:1.2rem!important}.profile-avatar{width:40px;height:40px}.profile-name{font-size:14px}.profile-actions button{font-size:11px;padding:4px 10px}.chat-container,.support-container{height:320px;padding:10px}.message-avatar,.support-message .msg-avatar{width:30px;height:30px}.message-sender,.support-message .msg-sender{font-size:13px}.message-text,.support-message .msg-text{font-size:13px}.chat-input-area input,.support-input-area input{font-size:13px;padding:8px 12px}.chat-input-area button,.support-input-area button{font-size:13px;padding:8px 16px}}
+        @media (max-width:480px){.container{padding:10px 6px 12px;border-radius:20px}.main-title{font-size:24px}.sub-text{font-size:13px}.tab-btn{padding:4px 10px;font-size:11px}.social-link{width:48px;height:48px}.social-link svg{width:22px;height:22px}.game-card .game-name{font-size:15px}.game-card .game-desc{font-size:13px}.forum-card h3{font-size:14px}.forum-card p{font-size:12px}.forum-card .btn-forum{font-size:11px;padding:4px 10px}.feature-item{font-size:13px;padding:10px 14px}.rules-list li{font-size:13px;padding:8px 12px}.btn-cookie{font-size:12px;padding:8px 16px}.modal-window{padding:16px 12px}.modal-window h2{font-size:18px}.modal-window p{font-size:14px}.profile-avatar{width:34px;height:34px}.profile-name{font-size:12px}.profile-actions button{font-size:10px;padding:3px 8px}.chat-container,.support-container{height:260px;padding:6px}.message-avatar,.support-message .msg-avatar{width:26px;height:26px}.message-sender,.support-message .msg-sender{font-size:12px}.message-text,.support-message .msg-text{font-size:12px}.chat-input-area input,.support-input-area input{font-size:12px;padding:6px 10px}.chat-input-area button,.support-input-area button{font-size:12px;padding:6px 14px}}
         @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
     </style>
 </head>
 <body>
 
-<div class="cosmic-bg"><div class="stars"></div>
+<div class="cosmic-bg" id="cosmicBg"><div class="stars"></div>
     <div class="roblox-float" style="left:2%;top:5%;">R</div><div class="roblox-float" style="left:10%;top:40%;">O</div><div class="roblox-float" style="left:18%;top:78%;">B</div><div class="roblox-float" style="left:28%;top:12%;">L</div><div class="roblox-float" style="left:38%;top:62%;">O</div><div class="roblox-float" style="left:48%;top:8%;">X</div><div class="roblox-float" style="left:58%;top:45%;">⚡</div><div class="roblox-float" style="left:68%;top:82%;">◆</div><div class="roblox-float" style="left:78%;top:22%;">◈</div><div class="roblox-float" style="left:6%;top:92%;">▣</div><div class="roblox-float" style="left:44%;top:90%;">⬡</div><div class="roblox-float" style="left:88%;top:72%;">⏣</div><div class="roblox-float" style="left:22%;top:2%;">✦</div><div class="roblox-float" style="left:62%;top:96%;">⬟</div><div class="roblox-float" style="left:95%;top:2%;">⍟</div><div class="roblox-float" style="left:1%;top:50%;">⎔</div><div class="roblox-float" style="left:52%;top:32%;">⏘</div><div class="roblox-float" style="left:32%;top:96%;">✧</div><div class="roblox-float" style="left:72%;top:4%;">⬠</div><div class="roblox-float" style="left:14%;top:25%;">🅡</div><div class="roblox-float" style="left:42%;top:2%;">🅞</div><div class="roblox-float" style="left:66%;top:68%;">🅑</div><div class="roblox-float" style="left:4%;top:70%;">🅛</div><div class="roblox-float" style="left:82%;top:38%;">🅧</div><div class="roblox-float" style="left:50%;top:72%;">🅞</div><div class="roblox-float" style="left:24%;top:48%;">🎮</div><div class="roblox-float" style="left:70%;top:15%;">🎮</div><div class="roblox-float" style="left:8%;top:32%;">⬡</div><div class="roblox-float" style="left:92%;top:88%;">◈</div><div class="roblox-float" style="left:34%;top:28%;">✦</div>
 </div>
 
-<div class="container">
+<div class="container" id="mainContainer">
     <div class="header-row">
         <div class="header-left">
             <h1 class="main-title"><span>Diers</span> Community</h1>
@@ -270,7 +305,8 @@
         <button class="tab-btn" data-tab="forum">Forum</button>
         <button class="tab-btn" data-tab="chat">Чат</button>
         <button class="tab-btn" data-tab="support">Поддержка</button>
-        <button class="tab-btn" data-tab="profile">Профиль</button>
+        <button class="tab-btn" data-tab="profile">👤 Профиль</button>
+        <button class="tab-btn" data-tab="settings">⚙️ Настройки</button>
         <button class="tab-btn" data-tab="admin" id="adminTabBtn" style="display:none;">👑 Админ панель</button>
     </div>
 
@@ -327,7 +363,7 @@
         </div>
     </div>
 
-    <!-- ЧАТ -->
+    <!-- ОБЩИЙ ЧАТ -->
     <div class="tab-content" id="tab-chat">
         <div class="chat-container">
             <div class="chat-messages" id="chatMessages"></div>
@@ -351,7 +387,7 @@
         </div>
     </div>
 
-    <!-- ПРОФИЛЬ (полноэкранная страница) -->
+    <!-- ПРОФИЛЬ (вкладка) -->
     <div class="tab-content" id="tab-profile">
         <div class="profile-full-page" id="profileFullPage">
             <h2>👤 Мой профиль</h2>
@@ -380,59 +416,153 @@
         </div>
     </div>
 
-    <!-- АДМИН ПАНЕЛЬ (полноэкранная страница, только для админов) -->
+    <!-- НАСТРОЙКИ (вкладка) -->
+    <div class="tab-content" id="tab-settings">
+        <div class="settings-full-page" id="settingsFullPage">
+            <h2>⚙️ Настройки</h2>
+
+            <div class="settings-group">
+                <label>🎨 Цвет фона (20 стилей)</label>
+                <div class="color-options" id="colorOptions">
+                    <button class="active" data-color="neon" style="background:linear-gradient(135deg,#0f1a30,#03050b);border-color:#f5cd5a;" title="Неоновый"></button>
+                    <button data-color="red" style="background:linear-gradient(135deg,#2a0a0a,#0a0202);border-color:#ff3333;" title="Красный"></button>
+                    <button data-color="blue" style="background:linear-gradient(135deg,#0a0a2a,#02020a);border-color:#3333ff;" title="Синий"></button>
+                    <button data-color="green" style="background:linear-gradient(135deg,#0a2a0a,#020a02);border-color:#33ff33;" title="Зелёный"></button>
+                    <button data-color="purple" style="background:linear-gradient(135deg,#2a0a2a,#0a020a);border-color:#9933ff;" title="Фиолетовый"></button>
+                    <button data-color="orange" style="background:linear-gradient(135deg,#2a1a0a,#0a0602);border-color:#ff8800;" title="Оранжевый"></button>
+                    <button data-color="pink" style="background:linear-gradient(135deg,#2a0a1a,#0a020a);border-color:#ff3399;" title="Розовый"></button>
+                    <button data-color="cyan" style="background:linear-gradient(135deg,#0a1a2a,#020a0a);border-color:#00ccff;" title="Голубой"></button>
+                    <button data-color="yellow" style="background:linear-gradient(135deg,#1a1a0a,#0a0a02);border-color:#ffdd00;" title="Жёлтый"></button>
+                    <button data-color="white" style="background:linear-gradient(135deg,#1a1a1a,#0a0a0a);border-color:#ffffff;" title="Белый (тёмный)"></button>
+                    <button data-color="half-red-blue" style="background:linear-gradient(135deg,#2a0a0a 50%,#0a0a2a 50%);border-color:#ff6b6b;" title="Красно-синий"></button>
+                    <button data-color="half-purple-pink" style="background:linear-gradient(135deg,#2a0a2a 50%,#2a0a1a 50%);border-color:#9933ff;" title="Фиолетово-розовый"></button>
+                    <button data-color="half-green-cyan" style="background:linear-gradient(135deg,#0a2a0a 50%,#0a1a2a 50%);border-color:#33ff33;" title="Зелёно-голубой"></button>
+                    <button data-color="half-orange-yellow" style="background:linear-gradient(135deg,#2a1a0a 50%,#1a1a0a 50%);border-color:#ff8800;" title="Оранжево-жёлтый"></button>
+                    <button data-color="half-red-white" style="background:linear-gradient(135deg,#2a0a0a 50%,#1a1a1a 50%);border-color:#ff3333;" title="Красно-белый"></button>
+                    <button data-color="tri-red-blue-green" style="background:linear-gradient(135deg,#2a0a0a 33%,#0a0a2a 33%,#0a2a0a 33%);border-color:#ff6b6b;" title="Красный/Синий/Зелёный"></button>
+                    <button data-color="tri-purple-pink-orange" style="background:linear-gradient(135deg,#2a0a2a 33%,#2a0a1a 33%,#2a1a0a 33%);border-color:#9933ff;" title="Фиолетовый/Розовый/Оранжевый"></button>
+                    <button data-color="tri-cyan-white-blue" style="background:linear-gradient(135deg,#0a1a2a 33%,#1a1a1a 33%,#0a0a2a 33%);border-color:#00ccff;" title="Голубой/Белый/Синий"></button>
+                    <button data-color="tri-green-yellow-orange" style="background:linear-gradient(135deg,#0a2a0a 33%,#1a1a0a 33%,#2a1a0a 33%);border-color:#33ff33;" title="Зелёный/Жёлтый/Оранжевый"></button>
+                    <button data-color="tri-pink-red-purple" style="background:linear-gradient(135deg,#2a0a1a 33%,#2a0a0a 33%,#2a0a2a 33%);border-color:#ff3399;" title="Розовый/Красный/Фиолетовый"></button>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <label>🔊 Громкость звука: <span class="range-value" id="volumeValue">80%</span></label>
+                <input type="range" id="volumeSlider" min="0" max="100" value="80">
+            </div>
+
+            <div class="settings-group">
+                <label>🌐 Язык</label>
+                <select id="languageSelect">
+                    <option value="ru">Русский (стандартный)</option>
+                    <option value="en">English</option>
+                    <option value="zh">中文 (Chinese)</option>
+                    <option value="uk">Українська</option>
+                    <option value="kk">Қазақша</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                </select>
+            </div>
+
+            <div class="settings-group">
+                <label>🔤 Шрифт текста</label>
+                <select id="fontSelect">
+                    <option value="standard">Стандартный</option>
+                    <option value="minecraft">Майнкрафтовский</option>
+                    <option value="roblox">Роблоксовский</option>
+                    <option value="bold">Жирный</option>
+                    <option value="italic">Курсивный</option>
+                    <option value="bold-italic">Жирно-курсивный</option>
+                    <option value="meteorite">Метеоритный</option>
+                </select>
+                <div class="font-preview" id="fontPreview">Пример текста: <span>Diers Community</span></div>
+            </div>
+
+            <div class="settings-group">
+                <label>📍 Регион</label>
+                <select id="regionSelect">
+                    <option value="ru">Россия</option>
+                    <option value="us">США</option>
+                    <option value="cn">Китай</option>
+                    <option value="ua">Украина</option>
+                    <option value="kz">Казахстан</option>
+                    <option value="eu">Европа</option>
+                    <option value="asia">Азия</option>
+                    <option value="de">Германия</option>
+                    <option value="fr">Франция</option>
+                </select>
+            </div>
+
+            <div class="settings-group">
+                <label>🎮 Дополнительные функции (20 шт)</label>
+                <div class="settings-checkbox"><input type="checkbox" id="animationsToggle" checked><label for="animationsToggle">Анимации включены</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="effectsToggle" checked><label for="effectsToggle">Эффекты (свечение, тени)</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="compactToggle"><label for="compactToggle">Компактный режим</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="notificationsToggle" checked><label for="notificationsToggle">Уведомления</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="autoPlayToggle" checked><label for="autoPlayToggle">Автовоспроизведение звуков</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="dimToggle"><label for="dimToggle">Затемнение фона</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="transparentToggle"><label for="transparentToggle">Прозрачность элементов</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="shadowToggle" checked><label for="shadowToggle">Тени элементов</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="gradientToggle" checked><label for="gradientToggle">Градиенты</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="glowToggle" checked><label for="glowToggle">Свечение (неон)</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="pulseToggle"><label for="pulseToggle">Пульсация элементов</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="blurToggle" checked><label for="blurToggle">Размытие фона</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="borderToggle" checked><label for="borderToggle">Рамки элементов</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="roundedToggle" checked><label for="roundedToggle">Скругление углов</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="hoverScaleToggle" checked><label for="hoverScaleToggle">Увеличение при наведении</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="glitchToggle"><label for="glitchToggle">Глитч-эффект</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="particlesToggle" checked><label for="particlesToggle">Частицы на фоне</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="rainbowToggle"><label for="rainbowToggle">Радужные акценты</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="neonBorderToggle" checked><label for="neonBorderToggle">Неоновые рамки</label></div>
+                <div class="settings-checkbox"><input type="checkbox" id="glassToggle" checked><label for="glassToggle">Стеклянный эффект</label></div>
+            </div>
+
+            <div class="settings-group">
+                <label>✨ Визуалы</label>
+                <button class="visuals-btn" onclick="alert('✨ Визуалы в разработке! Скоро будут добавлены новые эффекты и анимации.')">
+                    Скоро... <span class="soon">(в разработке)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- АДМИН ПАНЕЛЬ (вкладка) -->
     <div class="tab-content" id="tab-admin">
-        <div class="admin-full-page" id="adminFullPage">
+        <div class="admin-panel-full">
             <h2>👑 Админ-панель</h2>
-            <div class="admin-tabs-inner" id="adminTabsInner">
-                <button class="admin-tab-btn-inner active" data-admin-tab-inner="dashboard">📊 Статистика</button>
-                <button class="admin-tab-btn-inner" data-admin-tab-inner="users">👥 Пользователи</button>
-                <button class="admin-tab-btn-inner" data-admin-tab-inner="roles">🎖️ Роли</button>
-                <button class="admin-tab-btn-inner" data-admin-tab-inner="warns">⚠️ Предупреждения</button>
-                <button class="admin-tab-btn-inner" data-admin-tab-inner="logs">📜 Логи</button>
-                <button class="admin-tab-btn-inner" data-admin-tab-inner="settings">⚙️ Настройки</button>
-                <button class="admin-tab-btn-inner" data-admin-tab-inner="cleardata">🗑️ Очистка</button>
-                <button class="admin-tab-btn-inner" data-admin-tab-inner="export">📤 Экспорт</button>
+            <div class="admin-tabs" id="adminTabsFull">
+                <button class="admin-tab-btn active" data-admin-tab-full="dashboard">📊 Статистика</button>
+                <button class="admin-tab-btn" data-admin-tab-full="users">👥 Пользователи</button>
+                <button class="admin-tab-btn" data-admin-tab-full="settings">⚙️ Управление</button>
+                <button class="admin-tab-btn" data-admin-tab-full="logs">📜 Логи</button>
+                <button class="admin-tab-btn" data-admin-tab-full="roles">🎖️ Роли</button>
             </div>
-            <div class="admin-tab-content-inner active" id="adminTabDashboardInner">
-                <div class="admin-stats-grid" id="statsGridInner">
-                    <div class="stat-card"><span class="stat-number" id="statUsersInner">0</span><div class="stat-label">Пользователей</div></div>
-                    <div class="stat-card"><span class="stat-number" id="statChatInner">0</span><div class="stat-label">Сообщений в чате</div></div>
-                    <div class="stat-card"><span class="stat-number" id="statSupportInner">0</span><div class="stat-label">Сообщений в поддержке</div></div>
-                    <div class="stat-card"><span class="stat-number" id="statOnlineInner">0</span><div class="stat-label">Сейчас онлайн</div></div>
-                    <div class="stat-card"><span class="stat-number" id="statWarnsInner">0</span><div class="stat-label">Предупреждений</div></div>
-                    <div class="stat-card"><span class="stat-number" id="statRegsInner">0</span><div class="stat-label">Регистраций</div></div>
-                </div>
-                <div class="admin-chart">
-                    <div class="chart-bars"><div class="chart-bar" style="height:20%;animation-delay:.1s"></div><div class="chart-bar" style="height:45%;animation-delay:.2s"></div><div class="chart-bar" style="height:70%;animation-delay:.3s"></div><div class="chart-bar" style="height:55%;animation-delay:.4s"></div><div class="chart-bar" style="height:90%;animation-delay:.5s"></div><div class="chart-bar" style="height:65%;animation-delay:.6s"></div><div class="chart-bar" style="height:80%;animation-delay:.7s"></div></div>
-                    <div class="chart-labels"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+            <div class="admin-tab-content active" id="adminTabDashboardFull">
+                <div class="admin-stats-grid" id="statsGridFull">
+                    <div class="stat-card"><span class="stat-number" id="statUsersFull">0</span><div class="stat-label">Пользователей</div></div>
+                    <div class="stat-card"><span class="stat-number" id="statChatFull">0</span><div class="stat-label">Сообщений в чате</div></div>
+                    <div class="stat-card"><span class="stat-number" id="statSupportFull">0</span><div class="stat-label">Сообщений в поддержке</div></div>
+                    <div class="stat-card"><span class="stat-number" id="statOnlineFull">0</span><div class="stat-label">Сейчас онлайн</div></div>
+                    <div class="stat-card"><span class="stat-number" id="statWarnsFull">0</span><div class="stat-label">Предупреждений</div></div>
+                    <div class="stat-card"><span class="stat-number" id="statRegsFull">0</span><div class="stat-label">Регистраций</div></div>
                 </div>
             </div>
-            <div class="admin-tab-content-inner" id="adminTabUsersInner">
-                <div class="admin-user-list" id="adminUserListInner"></div>
+            <div class="admin-tab-content" id="adminTabUsersFull"><div class="admin-user-list" id="adminUserListFull"></div></div>
+            <div class="admin-tab-content" id="adminTabSettingsFull">
+                <div class="admin-toggle"><label>Чат включен</label><input type="checkbox" id="chatToggleFull" checked><span class="admin-status" id="chatStatusFull">Вкл</span></div>
+                <button class="admin-export-btn" onclick="changeAdminPassFull()">🔑 Сменить пароль админа</button>
+                <input type="password" id="newAdminPassFull" placeholder="Новый пароль" style="width:100%;padding:8px;border-radius:12px;border:1px solid rgba(255,215,0,.08);background:rgba(255,255,255,.04);color:#e8ecf5;margin-top:8px;">
+                <button class="admin-export-btn danger-btn" onclick="clearAllDataFull()">🗑️ Очистить все данные</button>
+                <button class="admin-export-btn danger-btn" onclick="clearChatFull()">🧹 Очистить общий чат</button>
+                <button class="admin-export-btn" onclick="exportDataFull()">📥 Экспорт данных</button>
             </div>
-            <div class="admin-tab-content-inner" id="adminTabRolesInner">
-                <div id="roleListInner"></div>
+            <div class="admin-tab-content" id="adminTabLogsFull">
+                <div class="admin-logs" id="adminLogsFull"></div>
             </div>
-            <div class="admin-tab-content-inner" id="adminTabWarnsInner">
-                <div id="warnListInner"></div>
-            </div>
-            <div class="admin-tab-content-inner" id="adminTabLogsInner">
-                <div class="admin-logs" id="adminLogsInner"></div>
-            </div>
-            <div class="admin-tab-content-inner" id="adminTabSettingsInner">
-                <div class="admin-toggle"><label>Чат включен</label><input type="checkbox" id="chatToggleInner" checked><span class="admin-status" id="chatStatusInner">Вкл</span></div>
-                <div class="admin-toggle"><label>Звуки включены</label><input type="checkbox" id="soundToggleInner" checked><span class="admin-status">Вкл</span></div>
-                <button class="admin-export-btn" onclick="changeAdminPassInner()">🔑 Сменить пароль админа</button>
-                <input type="password" id="newAdminPassInner" placeholder="Новый пароль" style="width:100%;padding:8px;border-radius:12px;border:1px solid rgba(255,215,0,.08);background:rgba(255,255,255,.04);color:#e8ecf5;margin-top:8px;">
-            </div>
-            <div class="admin-tab-content-inner" id="adminTabCleardataInner">
-                <button class="admin-export-btn danger-btn" onclick="clearAllDataInner()">🗑️ Очистить все данные (админ останется)</button>
-                <button class="admin-export-btn danger-btn" onclick="clearChatInner()">🧹 Очистить общий чат</button>
-                <button class="admin-export-btn danger-btn" onclick="clearSupportInner()">🧹 Очистить поддержку</button>
-            </div>
-            <div class="admin-tab-content-inner" id="adminTabExportInner">
-                <button class="admin-export-btn" onclick="exportDataInner()">📥 Экспорт данных (JSON)</button>
+            <div class="admin-tab-content" id="adminTabRolesFull">
+                <div id="roleListFull"></div>
             </div>
         </div>
     </div>
@@ -462,7 +592,7 @@
     </div>
 </div>
 
-<!-- ПРОСМОТР ПОЛЬЗОВАТЕЛЯ (модалка) -->
+<!-- МОДАЛЬНОЕ ОКНО ПРОСМОТРА ПОЛЬЗОВАТЕЛЯ -->
 <div class="modal-overlay user-profile-modal" id="userProfileModal">
     <div class="modal-window">
         <button class="close-btn" onclick="closeUserProfile()">✕</button>
@@ -481,37 +611,219 @@
 <script>
     // ===== ПОЛНЫЙ JS =====
     (function(){
-        // ЗВУКИ
-        let audioCtx = null; let soundsEnabled = true;
+        // === ЗВУКИ ===
+        let audioCtx = null; let soundsEnabled = true; let volume = 0.8;
         function initAudio(){ if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
         function playSound(type){
-            if(!soundsEnabled) return;
+            if(!soundsEnabled || volume === 0) return;
             try{
                 initAudio();
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
-                gain.gain.value = 0.08;
+                gain.gain.value = 0.08 * volume;
                 const now = audioCtx.currentTime;
                 if(type === 'click'){ osc.frequency.value = 880; osc.type = 'sine'; gain.gain.exponentialRampToValueAtTime(0.001, now+0.08); osc.start(now); osc.stop(now+0.08); }
-                else if(type === 'login'){ osc.frequency.value = 660; osc.type = 'sine'; gain.gain.value = 0.07; osc.start(now); osc.stop(now+0.2); }
-                else if(type === 'logout'){ osc.frequency.value = 440; osc.type = 'sine'; gain.gain.value = 0.07; osc.start(now); osc.stop(now+0.2); }
+                else if(type === 'login'){ osc.frequency.value = 660; osc.type = 'sine'; gain.gain.value = 0.07 * volume; osc.start(now); osc.stop(now+0.2); }
+                else if(type === 'logout'){ osc.frequency.value = 440; osc.type = 'sine'; gain.gain.value = 0.07 * volume; osc.start(now); osc.stop(now+0.2); }
                 else if(type === 'message'){ osc.frequency.value = 1200; osc.type = 'sine'; gain.gain.exponentialRampToValueAtTime(0.001, now+0.06); osc.start(now); osc.stop(now+0.06); }
                 else if(type === 'tab'){ osc.frequency.value = 1000; osc.type = 'triangle'; gain.gain.exponentialRampToValueAtTime(0.001, now+0.1); osc.start(now); osc.stop(now+0.1); }
-                else if(type === 'admin'){ osc.frequency.value = 550; osc.type = 'sawtooth'; gain.gain.value = 0.06; osc.start(now); osc.stop(now+0.2); }
                 else { osc.frequency.value = 500; osc.type = 'sine'; gain.gain.exponentialRampToValueAtTime(0.001, now+0.1); osc.start(now); osc.stop(now+0.1); }
             }catch(e){}
         }
 
-        // ДАННЫЕ
+        // === НАСТРОЙКИ ===
+        const SETTINGS_KEY = 'diers_settings';
+        function getDefaultSettings(){
+            return {
+                color: 'neon', volume: 80, language: 'ru', font: 'standard', region: 'ru',
+                animations: true, effects: true, compact: false, notifications: true,
+                autoPlay: true, dim: false, transparent: false, shadow: true, gradient: true,
+                glow: true, pulse: false, blur: true, border: true, rounded: true,
+                hoverScale: true, glitch: false, particles: true, rainbow: false,
+                neonBorder: true, glass: true
+            };
+        }
+        function loadSettings(){
+            try{
+                const raw = localStorage.getItem(SETTINGS_KEY);
+                if(raw){
+                    const data = JSON.parse(raw);
+                    const def = getDefaultSettings();
+                    Object.keys(def).forEach(k => { if(data[k] === undefined) data[k] = def[k]; });
+                    return data;
+                }
+            }catch(e){}
+            const def = getDefaultSettings();
+            localStorage.setItem(SETTINGS_KEY, JSON.stringify(def));
+            return def;
+        }
+        function saveSettings(settings){ localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); }
+        let settings = loadSettings();
+
+        // === ПРИМЕНЕНИЕ НАСТРОЕК ===
+        function applySettings(){
+            const bg = document.getElementById('cosmicBg');
+            const container = document.getElementById('mainContainer');
+            const colors = {
+                neon: 'radial-gradient(ellipse at 20% 15%, #0f1a30, #03050b)',
+                red: 'radial-gradient(ellipse at 20% 15%, #2a0a0a, #0a0202)',
+                blue: 'radial-gradient(ellipse at 20% 15%, #0a0a2a, #02020a)',
+                green: 'radial-gradient(ellipse at 20% 15%, #0a2a0a, #020a02)',
+                purple: 'radial-gradient(ellipse at 20% 15%, #2a0a2a, #0a020a)',
+                orange: 'radial-gradient(ellipse at 20% 15%, #2a1a0a, #0a0602)',
+                pink: 'radial-gradient(ellipse at 20% 15%, #2a0a1a, #0a020a)',
+                cyan: 'radial-gradient(ellipse at 20% 15%, #0a1a2a, #020a0a)',
+                yellow: 'radial-gradient(ellipse at 20% 15%, #1a1a0a, #0a0a02)',
+                white: 'radial-gradient(ellipse at 20% 15%, #1a1a1a, #0a0a0a)',
+                'half-red-blue': 'radial-gradient(ellipse at 20% 15%, #2a0a0a 50%, #0a0a2a 50%)',
+                'half-purple-pink': 'radial-gradient(ellipse at 20% 15%, #2a0a2a 50%, #2a0a1a 50%)',
+                'half-green-cyan': 'radial-gradient(ellipse at 20% 15%, #0a2a0a 50%, #0a1a2a 50%)',
+                'half-orange-yellow': 'radial-gradient(ellipse at 20% 15%, #2a1a0a 50%, #1a1a0a 50%)',
+                'half-red-white': 'radial-gradient(ellipse at 20% 15%, #2a0a0a 50%, #1a1a1a 50%)',
+                'tri-red-blue-green': 'radial-gradient(ellipse at 20% 15%, #2a0a0a 33%, #0a0a2a 33%, #0a2a0a 33%)',
+                'tri-purple-pink-orange': 'radial-gradient(ellipse at 20% 15%, #2a0a2a 33%, #2a0a1a 33%, #2a1a0a 33%)',
+                'tri-cyan-white-blue': 'radial-gradient(ellipse at 20% 15%, #0a1a2a 33%, #1a1a1a 33%, #0a0a2a 33%)',
+                'tri-green-yellow-orange': 'radial-gradient(ellipse at 20% 15%, #0a2a0a 33%, #1a1a0a 33%, #2a1a0a 33%)',
+                'tri-pink-red-purple': 'radial-gradient(ellipse at 20% 15%, #2a0a1a 33%, #2a0a0a 33%, #2a0a2a 33%)'
+            };
+            if(bg) bg.style.background = colors[settings.color] || colors.neon;
+            if(container){
+                const alphas = settings.transparent ? 'rgba(8,12,24,.3)' : 'rgba(8,12,24,.45)';
+                container.style.background = alphas;
+                container.style.boxShadow = settings.shadow ? '0 60px 160px rgba(0,0,0,.95)' : 'none';
+                container.style.border = settings.glow ? '1px solid rgba(255,215,0,.04)' : '1px solid transparent';
+                container.style.backdropFilter = settings.blur ? 'blur(28px) saturate(240%)' : 'none';
+                container.style.borderRadius = settings.rounded ? '40px' : '0px';
+                if(settings.neonBorder) container.style.border = '1px solid rgba(255,215,0,.15)';
+                if(settings.glass) container.style.background = 'rgba(8,12,24,.3)';
+                if(settings.rainbow){
+                    container.style.border = '2px solid';
+                    container.style.borderImage = 'linear-gradient(45deg, red, orange, yellow, green, blue, purple, red) 1';
+                }
+            }
+            document.body.className = '';
+            if(settings.font && settings.font !== 'standard') document.body.classList.add('font-' + settings.font);
+            if(settings.dim) document.body.style.background = 'rgba(0,0,0,.85)';
+            else document.body.style.background = '#060812';
+            if(settings.glitch){
+                document.body.classList.add('glitch');
+            }
+            document.getElementById('volumeSlider').value = settings.volume;
+            document.getElementById('volumeValue').textContent = settings.volume + '%';
+            document.getElementById('languageSelect').value = settings.language || 'ru';
+            document.getElementById('fontSelect').value = settings.font || 'standard';
+            document.getElementById('regionSelect').value = settings.region || 'ru';
+            document.querySelectorAll('#colorOptions button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.color === settings.color);
+            });
+            updateFontPreview();
+            updateLanguage();
+            if(settings.compact){
+                document.querySelectorAll('.feature-item, .rules-list li, .forum-card, .game-card').forEach(el => {
+                    el.style.padding = '8px 12px';
+                    el.style.fontSize = '13px';
+                });
+            } else {
+                document.querySelectorAll('.feature-item, .rules-list li, .forum-card, .game-card').forEach(el => {
+                    el.style.padding = '';
+                    el.style.fontSize = '';
+                });
+            }
+        }
+
+        function updateFontPreview(){
+            const preview = document.getElementById('fontPreview');
+            if(!preview) return;
+            const font = settings.font || 'standard';
+            let style = '';
+            if(font === 'minecraft') style = 'font-family:Minecraft,monospace;';
+            else if(font === 'roblox') style = 'font-family:Roblox,sans-serif;';
+            else if(font === 'bold') style = 'font-weight:700;';
+            else if(font === 'italic') style = 'font-style:italic;';
+            else if(font === 'bold-italic') style = 'font-weight:700;font-style:italic;';
+            else if(font === 'meteorite') style = 'font-family:Meteorite,cursive;';
+            preview.style = style;
+        }
+
+        function updateLanguage(){
+            const lang = settings.language || 'ru';
+            const texts = {
+                ru: { title: 'Diers Community', subtitle: 'Присоединяйся к нам с 2026 года!', welcome: 'Добро пожаловать в общий чат!' },
+                en: { title: 'Diers Community', subtitle: 'Join us from 2026!', welcome: 'Welcome to the general chat!' },
+                zh: { title: 'Diers 社区', subtitle: '从2026年加入我们！', welcome: '欢迎来到普通聊天！' },
+                uk: { title: 'Diers Community', subtitle: 'Приєднуйся до нас з 2026 року!', welcome: 'Ласкаво просимо до загального чату!' },
+                kk: { title: 'Diers Community', subtitle: '2026 жылдан бастап бізге қосылыңыз!', welcome: 'Жалпы чатқа қош келдіңіз!' },
+                de: { title: 'Diers Community', subtitle: 'Tritt uns ab 2026 bei!', welcome: 'Willkommen im allgemeinen Chat!' },
+                fr: { title: 'Diers Communauté', subtitle: 'Rejoins-nous à partir de 2026 !', welcome: 'Bienvenue dans le chat général !' },
+                es: { title: 'Diers Comunidad', subtitle: 'Únete a nosotros desde 2026!', welcome: '¡Bienvenido al chat general!' }
+            };
+            const t = texts[lang] || texts.ru;
+            const titleSpan = document.querySelector('.main-title span');
+            const subStrong = document.querySelector('.sub-text strong');
+            if(titleSpan) titleSpan.textContent = t.title;
+            if(subStrong) subStrong.textContent = t.subtitle;
+            if(appData.chatMessages.length > 0 && appData.chatMessages[0].sender === 'Система'){
+                appData.chatMessages[0].text = t.welcome;
+                saveData(appData);
+                renderChat();
+            }
+        }
+
+        // === СОХРАНЕНИЕ НАСТРОЕК ===
+        function saveSetting(key, value){
+            settings[key] = value;
+            saveSettings(settings);
+            applySettings();
+            playSound('click');
+        }
+
+        // === ОБРАБОТЧИКИ НАСТРОЕК ===
+        document.addEventListener('DOMContentLoaded', function(){
+            document.querySelectorAll('#colorOptions button').forEach(btn => {
+                btn.addEventListener('click', function(){
+                    saveSetting('color', this.dataset.color);
+                });
+            });
+            document.getElementById('volumeSlider').addEventListener('input', function(){
+                const val = this.value;
+                document.getElementById('volumeValue').textContent = val + '%';
+                volume = val / 100;
+                settings.volume = parseInt(val);
+                saveSettings(settings);
+            });
+            document.getElementById('languageSelect').addEventListener('change', function(){
+                saveSetting('language', this.value);
+            });
+            document.getElementById('fontSelect').addEventListener('change', function(){
+                saveSetting('font', this.value);
+            });
+            document.getElementById('regionSelect').addEventListener('change', function(){
+                saveSetting('region', this.value);
+            });
+            ['animationsToggle','effectsToggle','compactToggle','notificationsToggle','autoPlayToggle','dimToggle','transparentToggle','shadowToggle','gradientToggle','glowToggle','pulseToggle','blurToggle','borderToggle','roundedToggle','hoverScaleToggle','glitchToggle','particlesToggle','rainbowToggle','neonBorderToggle','glassToggle'].forEach(id => {
+                const el = document.getElementById(id);
+                if(el){
+                    el.addEventListener('change', function(){
+                        const key = id.replace('Toggle','');
+                        saveSetting(key, this.checked);
+                    });
+                }
+            });
+        });
+
+        // === ДАННЫЕ ПОЛЬЗОВАТЕЛЕЙ ===
         const STORAGE_KEY = 'diers_data';
         function getDefaultData(){
             return {
-                users: [{ login: 'Tazaral3333', password: 'tyrbo12345', avatar: '', role: 'admin', banned: false, muted: false, bio: '', extra: '', gallery: [], warns: 0, messages: 0 }],
+                users: [
+                    { login: 'Tazaral3333', password: 'tyrbo12345', avatar: '', role: 'admin', banned: false, muted: false, bio: '', extra: '', gallery: [], warns: 0, messages: 0 },
+                    { login: 'mi_xto9', password: '2345616', avatar: '', role: 'admin', banned: false, muted: false, bio: '', extra: '', gallery: [], warns: 0, messages: 0 }
+                ],
                 chatMessages: [{ sender: 'Система', avatar: '', text: 'Добро пожаловать в общий чат!', timestamp: Date.now() }],
                 supportMessages: [{ sender: 'Система', avatar: '', text: 'Чат поддержки. Напишите свой вопрос.', timestamp: Date.now() }],
-                settings: { chatEnabled: true, welcome: 'Приветствуем в Diers Community!', news: [], blacklist: [], soundEnabled: true, maintenance: false },
+                settings: { chatEnabled: true },
                 logs: [], warns: [], regStats: [], online: {}
             };
         }
@@ -520,18 +832,21 @@
                 const raw = localStorage.getItem(STORAGE_KEY);
                 if(raw){
                     const data = JSON.parse(raw);
-                    const adminUser = data.users.find(u => u.login === 'Tazaral3333');
-                    if (adminUser) {
-                        adminUser.role = 'admin';
-                        adminUser.banned = false;
-                        adminUser.muted = false;
-                        if (!adminUser.bio) adminUser.bio = '';
-                        if (!adminUser.extra) adminUser.extra = '';
-                        if (!adminUser.gallery) adminUser.gallery = [];
-                        if (adminUser.warns === undefined) adminUser.warns = 0;
-                        if (adminUser.messages === undefined) adminUser.messages = 0;
+                    const admin1 = data.users.find(u => u.login === 'Tazaral3333');
+                    if (admin1) {
+                        admin1.role = 'admin';
+                        admin1.banned = false;
+                        admin1.muted = false;
                     } else {
                         data.users.push({ login: 'Tazaral3333', password: 'tyrbo12345', avatar: '', role: 'admin', banned: false, muted: false, bio: '', extra: '', gallery: [], warns: 0, messages: 0 });
+                    }
+                    const admin2 = data.users.find(u => u.login === 'mi_xto9');
+                    if (admin2) {
+                        admin2.role = 'admin';
+                        admin2.banned = false;
+                        admin2.muted = false;
+                    } else {
+                        data.users.push({ login: 'mi_xto9', password: '2345616', avatar: '', role: 'admin', banned: false, muted: false, bio: '', extra: '', gallery: [], warns: 0, messages: 0 });
                     }
                     data.users.forEach(u => {
                         if (!u.bio) u.bio = '';
@@ -543,7 +858,7 @@
                         if (u.banned === undefined) u.banned = false;
                         if (u.muted === undefined) u.muted = false;
                     });
-                    if (!data.settings) data.settings = { chatEnabled: true, welcome: 'Приветствуем в Diers Community!', news: [], blacklist: [], soundEnabled: true, maintenance: false };
+                    if (!data.settings) data.settings = { chatEnabled: true };
                     if (!data.logs) data.logs = [];
                     if (!data.warns) data.warns = [];
                     if (!data.regStats) data.regStats = [];
@@ -558,7 +873,7 @@
         function saveData(data){ localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
         let appData = loadData();
 
-        // ВСПОМОГАТЕЛЬНЫЕ
+        // === ВСПОМОГАТЕЛЬНЫЕ ===
         function generateDefaultAvatar(login){
             const canvas = document.createElement('canvas');
             canvas.width=200; canvas.height=200;
@@ -587,7 +902,7 @@
         function setCurrentUser(user){ window._currentUser = user; }
         function addLog(action){ appData.logs.unshift({ action, time: Date.now() }); if(appData.logs.length>100) appData.logs.pop(); saveData(appData); }
 
-        // АВТОРИЗАЦИЯ
+        // === АВТОРИЗАЦИЯ ===
         let isLoginMode = true;
         const authModal = document.getElementById('authModal');
         const authForm = document.getElementById('authForm');
@@ -688,7 +1003,7 @@
             loginInput.value = ''; passwordInput.value = ''; avatarPreview.src = ''; avatarPreview.style.display = 'none'; avatarInput.value = '';
         });
 
-        // UI
+        // === UI ===
         const profileArea = document.getElementById('profileArea');
         function updateUI(user){
             if(user){
@@ -705,6 +1020,8 @@
                     <img src="${avatarUrl}" alt="Аватар" class="profile-avatar" id="profileAvatar" onclick="switchToProfileTab()">
                     <span class="profile-name" onclick="switchToProfileTab()">${user.login}</span>
                     <div class="profile-actions">
+                        <button class="edit-profile-btn" onclick="switchToProfileTab()" title="Профиль">✏️</button>
+                        <button class="settings-btn" onclick="switchToSettingsTab()" title="Настройки">⚙️</button>
                         ${adminBtn}
                         <button id="logoutBtn">Выйти</button>
                     </div>
@@ -712,7 +1029,6 @@
                 document.getElementById('logoutBtn').addEventListener('click', function(e){ e.stopPropagation(); logout(); });
                 enableChats(true);
                 updateChatState(); updateSupportState();
-                fillProfilePage(user);
                 if(isAdmin(user)) updateAdminUI();
             } else {
                 profileArea.innerHTML = '';
@@ -720,11 +1036,6 @@
                 document.body.style.overflow = 'hidden';
                 enableChats(false);
                 updateChatState(); updateSupportState();
-                document.getElementById('editNameFull').value = '';
-                document.getElementById('editBioFull').value = '';
-                document.getElementById('editExtraFull').value = '';
-                document.getElementById('editAvatarPreviewFull').src = '';
-                document.getElementById('profileGalleryFull').innerHTML = '';
                 document.getElementById('adminTabBtn').style.display = 'none';
             }
         }
@@ -732,6 +1043,11 @@
         function switchToProfileTab(){
             const profileTab = document.querySelector('.tab-btn[data-tab="profile"]');
             if(profileTab) profileTab.click();
+        }
+
+        function switchToSettingsTab(){
+            const settingsTab = document.querySelector('.tab-btn[data-tab="settings"]');
+            if(settingsTab) settingsTab.click();
         }
 
         function switchToAdminTab(){
@@ -809,102 +1125,7 @@
             playSound('logout');
         }
 
-        // ЧАТЫ
-        function renderChat(){
-            const container = document.getElementById('chatMessages');
-            if(!container) return;
-            container.innerHTML = '';
-            appData.chatMessages.forEach((msg)=>{
-                const div = document.createElement('div');
-                div.className = 'message';
-                const avatarUrl = getAvatarUrl(msg.avatar, msg.sender);
-                div.innerHTML = `<img src="${avatarUrl}" alt="Аватар" class="message-avatar" onclick="showUserProfile('${msg.sender}','${msg.avatar}')">
-                    <div class="message-body"><div class="message-header"><span class="message-sender">${msg.sender}</span><span class="message-time">${new Date(msg.timestamp).toLocaleTimeString()}</span></div>
-                    <div class="message-text">${msg.text}</div></div>`;
-                container.appendChild(div);
-            });
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function renderSupport(){
-            const container = document.getElementById('supportMessages');
-            if(!container) return;
-            container.innerHTML = '';
-            const user = currentUser();
-            const isAdminUser = user && isAdmin(user);
-            const filtered = appData.supportMessages.filter(msg => {
-                if(isAdminUser) return true;
-                if(msg.sender === user?.login) return true;
-                const senderUser = findUser(msg.sender);
-                return senderUser && senderUser.role === 'admin';
-            });
-            filtered.forEach((msg)=>{
-                const div = document.createElement('div');
-                div.className = 'support-message';
-                const senderUser = findUser(msg.sender);
-                const isAdminSender = senderUser && senderUser.role === 'admin';
-                if(isAdminSender) div.classList.add('support-admin');
-                else div.classList.add('support-user');
-                const avatarUrl = getAvatarUrl(msg.avatar, msg.sender);
-                div.innerHTML = `<img src="${avatarUrl}" alt="Аватар" class="msg-avatar" onclick="showUserProfile('${msg.sender}','${msg.avatar}')">
-                    <div class="msg-body"><div class="msg-header"><span class="msg-sender">${msg.sender} ${isAdminSender ? '👑' : ''}</span><span class="msg-time">${new Date(msg.timestamp).toLocaleTimeString()}</span></div>
-                    <div class="msg-text">${msg.text}</div></div>`;
-                container.appendChild(div);
-            });
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function sendChatMessage(){
-            const input = document.getElementById('chatInput');
-            const text = input.value.trim();
-            if(!text || !currentUser()) return;
-            const user = currentUser();
-            if(isBanned(user) || isMuted(user) || !appData.settings.chatEnabled) return;
-            const msg = { sender: user.login, avatar: user.avatar || '', text, timestamp: Date.now() };
-            appData.chatMessages.push(msg);
-            user.messages = (user.messages || 0) + 1;
-            saveData(appData);
-            renderChat();
-            input.value = '';
-            localStorage.setItem('chat_trigger', Date.now());
-            addLog(`Чат: ${user.login} → ${text.substring(0,20)}`);
-            playSound('message');
-        }
-
-        function sendSupportMessage(){
-            const input = document.getElementById('supportInput');
-            const text = input.value.trim();
-            if(!text || !currentUser()) return;
-            const user = currentUser();
-            if(isBanned(user) || isMuted(user)) return;
-            const msg = { sender: user.login, avatar: user.avatar || '', text, timestamp: Date.now() };
-            appData.supportMessages.push(msg);
-            saveData(appData);
-            renderSupport();
-            input.value = '';
-            localStorage.setItem('support_trigger', Date.now());
-            addLog(`Поддержка: ${user.login} → ${text.substring(0,20)}`);
-            playSound('message');
-        }
-
-        document.getElementById('sendBtn').addEventListener('click', sendChatMessage);
-        document.getElementById('chatInput').addEventListener('keydown', function(e){ if(e.key==='Enter') sendChatMessage(); });
-        document.getElementById('supportSendBtn').addEventListener('click', sendSupportMessage);
-        document.getElementById('supportInput').addEventListener('keydown', function(e){ if(e.key==='Enter') sendSupportMessage(); });
-
-        window.addEventListener('storage', function(e){
-            if(e.key === STORAGE_KEY || e.key === 'chat_trigger' || e.key === 'support_trigger'){
-                appData = loadData();
-                renderChat(); renderSupport();
-                updateChatState(); updateSupportState();
-                if(currentUser()){
-                    fillProfilePage(currentUser());
-                    if(isAdmin(currentUser())) updateAdminUI();
-                }
-            }
-        });
-
-        // ПРОФИЛЬ (полноэкранная страница)
+        // === ПРОФИЛЬ (вкладка) ===
         function fillProfilePage(user){
             if(!user) return;
             document.getElementById('editAvatarPreviewFull').src = getAvatarUrl(user.avatar, user.login);
@@ -1001,61 +1222,51 @@
             playSound('click');
         });
 
-        // ПРОСМОТР ПОЛЬЗОВАТЕЛЯ (модалка)
-        function showUserProfile(name, avatar){
-            const avatarUrl = getAvatarUrl(avatar, name);
-            document.getElementById('userProfileAvatar').src = avatarUrl;
-            document.getElementById('userProfileName').textContent = name;
-            document.getElementById('userProfileModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeUserProfile(){
-            document.getElementById('userProfileModal').classList.remove('active');
-            document.body.style.overflow = '';
+        // === НАСТРОЙКИ (вкладка) ===
+        function applySettingsToUI(){
+            applySettings();
         }
 
-        // АДМИН-ПАНЕЛЬ (полноэкранная страница)
+        // === АДМИН-ПАНЕЛЬ ===
         function updateAdminUI(){
-            renderAdminUsersInner();
-            updateStatsInner();
-            renderLogsInner();
-            updateAdminSettingsInner();
-            document.querySelectorAll('.admin-tab-btn-inner').forEach(btn => {
+            renderAdminUsersFull();
+            updateStatsFull();
+            renderLogsFull();
+            updateAdminSettingsFull();
+            document.querySelectorAll('#adminTabsFull .admin-tab-btn').forEach(btn => {
                 btn.addEventListener('click', function(){
-                    const tab = this.dataset.adminTabInner;
-                    document.querySelectorAll('.admin-tab-btn-inner').forEach(b=>b.classList.remove('active'));
+                    const tab = this.dataset.adminTabFull;
+                    document.querySelectorAll('#adminTabsFull .admin-tab-btn').forEach(b=>b.classList.remove('active'));
                     this.classList.add('active');
-                    document.querySelectorAll('.admin-tab-content-inner').forEach(c=>c.classList.remove('active'));
-                    const target = document.getElementById('adminTab' + tab.charAt(0).toUpperCase() + tab.slice(1) + 'Inner');
-                    if(target) target.classList.add('active');
-                    if(tab === 'dashboard') updateStatsInner();
-                    if(tab === 'users') renderAdminUsersInner();
-                    if(tab === 'roles') renderRolesInner();
-                    if(tab === 'warns') renderWarnsInner();
-                    if(tab === 'logs') renderLogsInner();
+                    document.querySelectorAll('#tab-admin .admin-tab-content').forEach(c=>c.classList.remove('active'));
+                    document.getElementById('adminTab' + tab.charAt(0).toUpperCase() + tab.slice(1) + 'Full').classList.add('active');
+                    if(tab === 'dashboard') updateStatsFull();
+                    if(tab === 'users') renderAdminUsersFull();
+                    if(tab === 'roles') renderRolesFull();
+                    if(tab === 'logs') renderLogsFull();
                     playSound('tab');
                 });
             });
         }
 
-        function updateStatsInner(){
-            document.getElementById('statUsersInner').textContent = appData.users.length;
-            document.getElementById('statChatInner').textContent = appData.chatMessages.length;
-            document.getElementById('statSupportInner').textContent = appData.supportMessages.length;
-            document.getElementById('statOnlineInner').textContent = Object.keys(appData.online).length || Math.floor(Math.random() * 5) + 1;
-            document.getElementById('statWarnsInner').textContent = appData.warns.length;
-            document.getElementById('statRegsInner').textContent = appData.regStats.length;
+        function updateStatsFull(){
+            document.getElementById('statUsersFull').textContent = appData.users.length;
+            document.getElementById('statChatFull').textContent = appData.chatMessages.length;
+            document.getElementById('statSupportFull').textContent = appData.supportMessages.length;
+            document.getElementById('statOnlineFull').textContent = Object.keys(appData.online).length || Math.floor(Math.random() * 5) + 1;
+            document.getElementById('statWarnsFull').textContent = appData.warns.length;
+            document.getElementById('statRegsFull').textContent = appData.regStats.length;
         }
 
-        function renderLogsInner(){
-            const container = document.getElementById('adminLogsInner');
+        function renderLogsFull(){
+            const container = document.getElementById('adminLogsFull');
             if(!container) return;
             container.innerHTML = appData.logs.length === 0 ? '<div style="text-align:center;color:rgba(200,210,240,.3);padding:20px;">Логов пока нет</div>' :
                 appData.logs.map(log => `<div class="admin-log-item"><span>${log.action}</span><span class="log-time">${new Date(log.time).toLocaleString()}</span></div>`).join('');
         }
 
-        function renderAdminUsersInner(){
-            const list = document.getElementById('adminUserListInner');
+        function renderAdminUsersFull(){
+            const list = document.getElementById('adminUserListFull');
             if(!list) return;
             list.innerHTML = '';
             appData.users.forEach(user => {
@@ -1066,10 +1277,9 @@
                     <div class="user-info"><img src="${avatarUrl}"><span>${user.login} ${user.role==='admin'?'👑':''} ${user.banned?'🚫':''} ${user.muted?'🔇':''}</span></div>
                     <div class="user-actions">
                         ${user.role !== 'admin' ? `
-                            <button class="ban-btn" onclick="toggleBanInner('${user.login}')">${user.banned?'Разбан':'Бан'}</button>
-                            <button class="mute-btn" onclick="toggleMuteInner('${user.login}')">${user.muted?'Размут':'Мут'}</button>
-                            <button class="switch-btn" onclick="switchToUserInner('${user.login}')">Войти</button>
-                            <button class="switch-btn" onclick="warnUserInner('${user.login}')">Предупредить</button>
+                            <button class="ban-btn" onclick="toggleBanFull('${user.login}')">${user.banned?'Разбан':'Бан'}</button>
+                            <button class="mute-btn" onclick="toggleMuteFull('${user.login}')">${user.muted?'Размут':'Мут'}</button>
+                            <button class="switch-btn" onclick="switchToUserFull('${user.login}')">Войти</button>
                         ` : '<span style="color:rgba(200,210,240,.3);font-size:12px;">Администратор</span>'}
                     </div>
                 `;
@@ -1077,8 +1287,8 @@
             });
         }
 
-        function renderRolesInner(){
-            const container = document.getElementById('roleListInner');
+        function renderRolesFull(){
+            const container = document.getElementById('roleListFull');
             if(!container) return;
             container.innerHTML = '';
             appData.users.forEach(user => {
@@ -1086,18 +1296,18 @@
                 div.className = 'admin-user-item';
                 div.innerHTML = `<span>${user.login} (${user.role})</span>
                     <div class="user-actions">
-                        <button onclick="setRoleInner('${user.login}','user')">Пользователь</button>
-                        <button onclick="setRoleInner('${user.login}','moder')">Модер</button>
-                        <button onclick="setRoleInner('${user.login}','admin')">Админ</button>
+                        <button onclick="setRoleFull('${user.login}','user')">Пользователь</button>
+                        <button onclick="setRoleFull('${user.login}','moder')">Модер</button>
+                        <button onclick="setRoleFull('${user.login}','admin')">Админ</button>
                     </div>`;
                 container.appendChild(div);
             });
         }
 
-        function setRoleInner(login, role){
+        function setRoleFull(login, role){
             const user = findUser(login);
             if(!user) return;
-            if(role === 'admin' && login !== 'Tazaral3333'){
+            if(role === 'admin' && login !== 'Tazaral3333' && login !== 'mi_xto9'){
                 if(appData.users.some(u=>u.role==='admin' && u.login!==login)){
                     alert('Администратор уже есть!');
                     return;
@@ -1105,72 +1315,14 @@
             }
             user.role = role;
             saveData(appData);
-            renderRolesInner();
+            renderRolesFull();
             addLog(`Роль ${login} → ${role}`);
             playSound('click');
         }
 
-        function renderWarnsInner(){
-            const container = document.getElementById('warnListInner');
-            if(!container) return;
-            container.innerHTML = appData.warns.length === 0 ? '<p style="color:rgba(200,210,240,.3);">Нет предупреждений</p>' :
-                appData.warns.map(w => `<div class="admin-log-item"><span>${w.user} - ${w.reason}</span><span class="log-time">${new Date(w.time).toLocaleString()}</span></div>`).join('');
-        }
-
-        function warnUserInner(login){
-            const reason = prompt('Причина предупреждения:');
-            if(!reason) return;
-            const user = findUser(login);
-            if(!user) return;
-            user.warns = (user.warns || 0) + 1;
-            appData.warns.push({ user: login, reason, time: Date.now() });
-            saveData(appData);
-            renderAdminUsersInner();
-            renderWarnsInner();
-            addLog(`Предупреждение ${login}: ${reason}`);
-            playSound('click');
-        }
-
-        function toggleBanInner(login){
-            const user = findUser(login);
-            if(!user || user.role === 'admin') return;
-            user.banned = !user.banned;
-            if(user.banned) user.muted = true;
-            else user.muted = false;
-            saveData(appData);
-            renderAdminUsersInner();
-            if(currentUser() && currentUser().login === login) updateUI(currentUser());
-            updateChatState(); updateSupportState();
-            addLog(`${user.banned?'Бан':'Разбан'} ${login}`);
-            playSound('click');
-        }
-
-        function toggleMuteInner(login){
-            const user = findUser(login);
-            if(!user || user.role === 'admin') return;
-            user.muted = !user.muted;
-            saveData(appData);
-            renderAdminUsersInner();
-            if(currentUser() && currentUser().login === login) updateUI(currentUser());
-            updateChatState(); updateSupportState();
-            addLog(`${user.muted?'Мут':'Размут'} ${login}`);
-            playSound('click');
-        }
-
-        function switchToUserInner(login){
-            const user = findUser(login);
-            if(!user) return;
-            setCurrentUser(user);
-            updateUI(user);
-            renderChat(); renderSupport();
-            updateChatState(); updateSupportState();
-            addLog(`Переключился на ${login}`);
-            playSound('click');
-        }
-
-        function updateAdminSettingsInner(){
-            const toggle = document.getElementById('chatToggleInner');
-            const status = document.getElementById('chatStatusInner');
+        function updateAdminSettingsFull(){
+            const toggle = document.getElementById('chatToggleFull');
+            const status = document.getElementById('chatStatusFull');
             if(toggle){
                 toggle.checked = appData.settings.chatEnabled;
                 status.textContent = appData.settings.chatEnabled ? 'Вкл' : 'Выкл';
@@ -1184,27 +1336,53 @@
                     playSound('click');
                 };
             }
-            const soundToggle = document.getElementById('soundToggleInner');
-            if(soundToggle){
-                soundToggle.checked = appData.settings.soundEnabled !== false;
-                soundsEnabled = soundToggle.checked;
-                soundToggle.onchange = function(){
-                    soundsEnabled = this.checked;
-                    appData.settings.soundEnabled = this.checked;
-                    saveData(appData);
-                    playSound('click');
-                };
-            }
         }
 
-        function changeAdminPassInner(){
-            const pass = document.getElementById('newAdminPassInner').value.trim();
+        function toggleBanFull(login){
+            const user = findUser(login);
+            if(!user || user.role === 'admin') return;
+            user.banned = !user.banned;
+            if(user.banned) user.muted = true;
+            else user.muted = false;
+            saveData(appData);
+            renderAdminUsersFull();
+            if(currentUser() && currentUser().login === login) updateUI(currentUser());
+            updateChatState(); updateSupportState();
+            addLog(`${user.banned?'Бан':'Разбан'} ${login}`);
+            playSound('click');
+        }
+
+        function toggleMuteFull(login){
+            const user = findUser(login);
+            if(!user || user.role === 'admin') return;
+            user.muted = !user.muted;
+            saveData(appData);
+            renderAdminUsersFull();
+            if(currentUser() && currentUser().login === login) updateUI(currentUser());
+            updateChatState(); updateSupportState();
+            addLog(`${user.muted?'Мут':'Размут'} ${login}`);
+            playSound('click');
+        }
+
+        function switchToUserFull(login){
+            const user = findUser(login);
+            if(!user) return;
+            setCurrentUser(user);
+            updateUI(user);
+            renderChat(); renderSupport();
+            updateChatState(); updateSupportState();
+            addLog(`Переключился на ${login}`);
+            playSound('click');
+        }
+
+        function changeAdminPassFull(){
+            const pass = document.getElementById('newAdminPassFull').value.trim();
             if(!pass) return;
             const admin = findUser('Tazaral3333');
             if(admin){ admin.password = pass; saveData(appData); alert('Пароль изменён'); addLog('Смена пароля админа'); playSound('click'); }
         }
 
-        function clearChatInner(){
+        function clearChatFull(){
             if(!confirm('Очистить общий чат?')) return;
             appData.chatMessages = [{ sender: 'Система', avatar: '', text: 'Чат очищен администратором', timestamp: Date.now() }];
             saveData(appData);
@@ -1213,31 +1391,20 @@
             playSound('click');
         }
 
-        function clearSupportInner(){
-            if(!confirm('Очистить поддержку?')) return;
-            appData.supportMessages = [{ sender: 'Система', avatar: '', text: 'Поддержка очищена администратором', timestamp: Date.now() }];
-            saveData(appData);
-            renderSupport();
-            addLog('Очистка поддержки');
-            playSound('click');
-        }
-
-        function clearAllDataInner(){
-            if(!confirm('Очистить все данные? Админ останется')) return;
+        function clearAllDataFull(){
+            if(!confirm('Очистить все данные? Админы останутся')) return;
             appData = getDefaultData();
-            const admin = appData.users.find(u => u.login === 'Tazaral3333');
-            if(admin) admin.role = 'admin';
             saveData(appData);
-            renderAdminUsersInner(); renderChat(); renderSupport();
-            updateStatsInner(); renderLogsInner();
+            renderAdminUsersFull(); renderChat(); renderSupport();
+            updateStatsFull(); renderLogsFull();
             updateChatState(); updateSupportState();
-            if(currentUser() && currentUser().login !== 'Tazaral3333') logout();
+            if(currentUser() && currentUser().login !== 'Tazaral3333' && currentUser().login !== 'mi_xto9') logout();
             else updateUI(currentUser());
             addLog('Очистка всех данных');
             playSound('click');
         }
 
-        function exportDataInner(){
+        function exportDataFull(){
             const dataStr = JSON.stringify(appData, null, 2);
             const blob = new Blob([dataStr], {type:'application/json'});
             const url = URL.createObjectURL(blob);
@@ -1248,45 +1415,119 @@
             playSound('click');
         }
 
-        // ВКЛАДКИ
-        const tabs = document.querySelectorAll('.tab-btn');
-        const tabContents = {
-            main: document.getElementById('tab-main'),
-            social: document.getElementById('tab-social'),
-            games: document.getElementById('tab-games'),
-            forum: document.getElementById('tab-forum'),
-            chat: document.getElementById('tab-chat'),
-            support: document.getElementById('tab-support'),
-            profile: document.getElementById('tab-profile'),
-            admin: document.getElementById('tab-admin')
-        };
-        tabs.forEach(btn => {
-            btn.addEventListener('click', function(){
-                const tab = this.dataset.tab;
-                tabs.forEach(b=>b.classList.remove('active'));
-                this.classList.add('active');
-                Object.keys(tabContents).forEach(key=>{ tabContents[key].classList.remove('active'); });
-                if(tabContents[tab]) tabContents[tab].classList.add('active');
-                if(tab === 'chat' || tab === 'support'){
-                    setTimeout(()=>{
-                        const container = tab === 'chat' ? document.getElementById('chatMessages') : document.getElementById('supportMessages');
-                        if(container) container.scrollTop = container.scrollHeight;
-                    }, 100);
-                }
-                if(tab === 'profile' && currentUser()) fillProfilePage(currentUser());
-                if(tab === 'admin' && currentUser() && isAdmin(currentUser())) {
-                    updateAdminUI();
-                }
-                playSound('tab');
+        // === ЧАТЫ ===
+        function renderChat(){
+            const container = document.getElementById('chatMessages');
+            if(!container) return;
+            container.innerHTML = '';
+            appData.chatMessages.forEach((msg)=>{
+                const div = document.createElement('div');
+                div.className = 'message';
+                const avatarUrl = getAvatarUrl(msg.avatar, msg.sender);
+                div.innerHTML = `<img src="${avatarUrl}" alt="Аватар" class="message-avatar" onclick="showUserProfile('${msg.sender}','${msg.avatar}')">
+                    <div class="message-body"><div class="message-header"><span class="message-sender">${msg.sender}</span><span class="message-time">${new Date(msg.timestamp).toLocaleTimeString()}</span></div>
+                    <div class="message-text">${msg.text}</div></div>`;
+                container.appendChild(div);
             });
-        });
-
-        function switchToSupport(){
-            const supportTab = document.querySelector('.tab-btn[data-tab="support"]');
-            if(supportTab) supportTab.click();
+            container.scrollTop = container.scrollHeight;
         }
 
-        // МОДАЛКИ ФОРУМА
+        function renderSupport(){
+            const container = document.getElementById('supportMessages');
+            if(!container) return;
+            container.innerHTML = '';
+            const user = currentUser();
+            const isAdminUser = user && isAdmin(user);
+            const filtered = appData.supportMessages.filter(msg => {
+                if(isAdminUser) return true;
+                if(msg.sender === user?.login) return true;
+                const senderUser = findUser(msg.sender);
+                return senderUser && senderUser.role === 'admin';
+            });
+            filtered.forEach((msg)=>{
+                const div = document.createElement('div');
+                div.className = 'support-message';
+                const senderUser = findUser(msg.sender);
+                const isAdminSender = senderUser && senderUser.role === 'admin';
+                if(isAdminSender) div.classList.add('support-admin');
+                else div.classList.add('support-user');
+                const avatarUrl = getAvatarUrl(msg.avatar, msg.sender);
+                div.innerHTML = `<img src="${avatarUrl}" alt="Аватар" class="msg-avatar" onclick="showUserProfile('${msg.sender}','${msg.avatar}')">
+                    <div class="msg-body"><div class="msg-header"><span class="msg-sender">${msg.sender} ${isAdminSender ? '👑' : ''}</span><span class="msg-time">${new Date(msg.timestamp).toLocaleTimeString()}</span></div>
+                    <div class="msg-text">${msg.text}</div></div>`;
+                container.appendChild(div);
+            });
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function sendChatMessage(){
+            const input = document.getElementById('chatInput');
+            const text = input.value.trim();
+            if(!text || !currentUser()) return;
+            const user = currentUser();
+            if(isBanned(user) || isMuted(user) || !appData.settings.chatEnabled) return;
+            const msg = { sender: user.login, avatar: user.avatar || '', text, timestamp: Date.now() };
+            appData.chatMessages.push(msg);
+            user.messages = (user.messages || 0) + 1;
+            saveData(appData);
+            renderChat();
+            input.value = '';
+            localStorage.setItem('chat_trigger', Date.now());
+            addLog(`Чат: ${user.login} → ${text.substring(0,20)}`);
+            playSound('message');
+        }
+
+        function sendSupportMessage(){
+            const input = document.getElementById('supportInput');
+            const text = input.value.trim();
+            if(!text || !currentUser()) return;
+            const user = currentUser();
+            if(isBanned(user) || isMuted(user)) return;
+            const msg = { sender: user.login, avatar: user.avatar || '', text, timestamp: Date.now() };
+            appData.supportMessages.push(msg);
+            saveData(appData);
+            renderSupport();
+            input.value = '';
+            localStorage.setItem('support_trigger', Date.now());
+            addLog(`Поддержка: ${user.login} → ${text.substring(0,20)}`);
+            playSound('message');
+        }
+
+        document.getElementById('sendBtn').addEventListener('click', sendChatMessage);
+        document.getElementById('chatInput').addEventListener('keydown', function(e){ if(e.key==='Enter') sendChatMessage(); });
+        document.getElementById('supportSendBtn').addEventListener('click', sendSupportMessage);
+        document.getElementById('supportInput').addEventListener('keydown', function(e){ if(e.key==='Enter') sendSupportMessage(); });
+
+        // === СИНХРОНИЗАЦИЯ ===
+        window.addEventListener('storage', function(e){
+            if(e.key === STORAGE_KEY || e.key === 'chat_trigger' || e.key === 'support_trigger'){
+                appData = loadData();
+                renderChat(); renderSupport();
+                updateChatState(); updateSupportState();
+                if(document.getElementById('tab-admin').classList.contains('active')){ renderAdminUsersFull(); updateStatsFull(); renderLogsFull(); }
+                if(document.getElementById('tab-settings').classList.contains('active')){ applySettings(); }
+                if(document.getElementById('tab-profile').classList.contains('active') && currentUser()){ fillProfilePage(currentUser()); }
+            }
+            if(e.key === SETTINGS_KEY){
+                settings = loadSettings();
+                applySettings();
+            }
+        });
+
+        // === ПРОСМОТР ПОЛЬЗОВАТЕЛЯ ===
+        function showUserProfile(name, avatar){
+            const avatarUrl = getAvatarUrl(avatar, name);
+            document.getElementById('userProfileAvatar').src = avatarUrl;
+            document.getElementById('userProfileName').textContent = name;
+            document.getElementById('userProfileModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeUserProfile(){
+            document.getElementById('userProfileModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // === МОДАЛКИ ФОРУМА ===
         const modalOverlay = document.getElementById('modalOverlay');
         const modalContent = document.getElementById('modalContent');
         function openModal(type){
@@ -1304,7 +1545,45 @@
             document.body.style.overflow = '';
         }
 
-        // COOKIE
+        function switchToSupport(){
+            const supportTab = document.querySelector('.tab-btn[data-tab="support"]');
+            if(supportTab) supportTab.click();
+        }
+
+        // === ВКЛАДКИ ===
+        const tabs = document.querySelectorAll('.tab-btn');
+        const tabContents = {
+            main: document.getElementById('tab-main'),
+            social: document.getElementById('tab-social'),
+            games: document.getElementById('tab-games'),
+            forum: document.getElementById('tab-forum'),
+            chat: document.getElementById('tab-chat'),
+            support: document.getElementById('tab-support'),
+            profile: document.getElementById('tab-profile'),
+            settings: document.getElementById('tab-settings'),
+            admin: document.getElementById('tab-admin')
+        };
+        tabs.forEach(btn => {
+            btn.addEventListener('click', function(){
+                const tab = this.dataset.tab;
+                tabs.forEach(b=>b.classList.remove('active'));
+                this.classList.add('active');
+                Object.keys(tabContents).forEach(key=>{ tabContents[key].classList.remove('active'); });
+                if(tabContents[tab]) tabContents[tab].classList.add('active');
+                if(tab === 'chat' || tab === 'support'){
+                    setTimeout(()=>{
+                        const container = tab === 'chat' ? document.getElementById('chatMessages') : document.getElementById('supportMessages');
+                        if(container) container.scrollTop = container.scrollHeight;
+                    }, 100);
+                }
+                if(tab === 'profile' && currentUser()) fillProfilePage(currentUser());
+                if(tab === 'settings') applySettings();
+                if(tab === 'admin' && currentUser() && isAdmin(currentUser())) updateAdminUI();
+                playSound('tab');
+            });
+        });
+
+        // === COOKIE ===
         const cookieBtn = document.getElementById('cookieBtn');
         const cookieNotice = document.getElementById('cookieNotice');
         cookieBtn.addEventListener('click', function(){
@@ -1314,9 +1593,12 @@
         });
         if(localStorage.getItem('cookieAccepted') === 'true') cookieNotice.classList.add('hidden');
 
-        // ИНИЦИАЛИЗАЦИЯ
+        // === ИНИЦИАЛИЗАЦИЯ ===
         (function init(){
             appData = loadData();
+            settings = loadSettings();
+            applySettings();
+
             let savedUser = null;
             try { savedUser = JSON.parse(localStorage.getItem('diers_current_user')); } catch(e){}
             if(savedUser){
@@ -1382,9 +1664,8 @@
         }
 
         console.log('🚀 Diers Community запущен!');
-        console.log('👑 Админ: Tazaral3333 / tyrbo12345 (роль гарантирована)');
-        console.log('🎵 Приятные звуки включены!');
-        console.log('📸 Профиль и админ-панель — полноэкранные вкладки!');
+        console.log('👑 Админы: Tazaral3333 / tyrbo12345 и mi_xto9 / 2345616');
+        console.log('📸 Кнопки: ✏️ - Профиль (вкладка), ⚙️ - Настройки (вкладка), 👑 - Админка (вкладка)');
     })();
 </script>
 </body>
